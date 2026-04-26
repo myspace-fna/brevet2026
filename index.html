@@ -4,25 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Brevet 2026 – Fiches d'Élise 🌟</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&family=Pacifico&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --pink:    #FF6B9D;
-  --purple:  #A855F7;
-  --blue:    #3B82F6;
-  --teal:    #06B6D4;
-  --green:   #10B981;
-  --yellow:  #F59E0B;
-  --orange:  #F97316;
-  --red:     #EF4444;
-  --bg:      #0F0A1E;
-  --card:    #1A1035;
-  --card2:   #231A48;
-  --text:    #F0E6FF;
-  --muted:   #9180C4;
-  --radius:  18px;
+  --rose:    #F472B6;
+  --violet:  #818CF8;
+  --indigo:  #6366F1;
+  --cyan:    #22D3EE;
+  --emerald: #34D399;
+  --amber:   #FBBF24;
+  --coral:   #FB7185;
+  --sky:     #38BDF8;
+
+  --bg:      #08070F;
+  --surface: rgba(255,255,255,.04);
+  --surface2:rgba(255,255,255,.07);
+  --border:  rgba(255,255,255,.08);
+  --border2: rgba(255,255,255,.14);
+  --text:    #F1EEF9;
+  --muted:   #7C6FA8;
+  --radius:  20px;
+  --radius-sm:12px;
+
+  --grad-main: linear-gradient(135deg,#F472B6,#818CF8);
+  --grad-quiz: linear-gradient(135deg,#FB7185,#FBBF24);
+  --grad-ann:  linear-gradient(135deg,#6366F1,#22D3EE);
+  --grad-lb:   linear-gradient(135deg,#FBBF24,#FB7185);
 }
+
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+
 body{
   font-family:'Nunito',sans-serif;
   background:var(--bg);
@@ -31,399 +42,589 @@ body{
   overflow-x:hidden;
 }
 
-/* ── BG STARS ── */
+/* ── AMBIENT GLOW ── */
 body::before{
-  content:'';
-  position:fixed;inset:0;
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 10%, #2D0B6340 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, #0D4A7340 0%, transparent 60%);
-  pointer-events:none;z-index:0;
+    radial-gradient(ellipse 55% 45% at 15% 0%,  #F472B618 0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 85% 100%, #6366F118 0%, transparent 65%),
+    radial-gradient(ellipse 35% 30% at 50% 50%,  #22D3EE08 0%, transparent 60%);
 }
 
 /* ── HEADER ── */
 header{
   position:sticky;top:0;z-index:100;
-  background:rgba(15,10,30,.92);
-  backdrop-filter:blur(12px);
-  border-bottom:2px solid rgba(168,85,247,.3);
-  padding:12px 16px;
+  background:rgba(8,7,15,.8);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:14px 18px;
   display:flex;align-items:center;justify-content:space-between;
 }
-.logo{font-family:'Pacifico',cursive;font-size:1.4rem;
-  background:linear-gradient(135deg,var(--pink),var(--purple),var(--blue));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo{
+  font-family:'Pacifico',cursive;font-size:1.35rem;
+  background:var(--grad-main);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:-.01em;
+}
 .stars-badge{
-  background:linear-gradient(135deg,var(--yellow),var(--orange));
-  border-radius:20px;padding:4px 12px;
-  font-weight:800;font-size:.85rem;color:#fff;
-  display:flex;align-items:center;gap:4px;
+  background:var(--surface2);
+  border:1px solid var(--border2);
+  border-radius:30px;padding:5px 13px;
+  font-weight:800;font-size:.82rem;color:var(--amber);
+  display:flex;align-items:center;gap:5px;
+  backdrop-filter:blur(8px);
 }
 
 /* ── NAV TABS ── */
 nav{
-  display:flex;overflow-x:auto;gap:8px;
-  padding:12px 16px;
+  display:flex;overflow-x:auto;gap:6px;
+  padding:10px 18px;
   scrollbar-width:none;
+  background:rgba(8,7,15,.6);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
   position:relative;z-index:1;
 }
 nav::-webkit-scrollbar{display:none;}
 .tab{
-  flex-shrink:0;padding:8px 16px;border-radius:30px;
-  font-weight:700;font-size:.85rem;cursor:pointer;
-  border:2px solid transparent;transition:all .25s;
-  white-space:nowrap;
+  flex-shrink:0;padding:7px 15px;border-radius:30px;
+  font-weight:700;font-size:.8rem;cursor:pointer;
+  border:1px solid transparent;transition:all .22s;
+  white-space:nowrap;letter-spacing:.01em;
 }
-.tab.active{color:#fff;}
-.tab:not(.active){background:var(--card);color:var(--muted);border-color:rgba(255,255,255,.08);}
+.tab.active{color:#fff;border-color:rgba(255,255,255,.15);}
+.tab:not(.active){
+  background:var(--surface);color:var(--muted);
+  border-color:var(--border);
+}
+.tab:not(.active):hover{background:var(--surface2);color:var(--text);}
 
 /* ── PAGE ── */
-.page{display:none;padding:12px 16px 80px;position:relative;z-index:1;}
+.page{display:none;padding:16px 16px 90px;position:relative;z-index:1;}
 .page.active{display:block;}
 
-/* ── HOME ── */
-.hero{
-  text-align:center;padding:28px 8px 20px;
-}
-.hero h1{font-family:'Pacifico',cursive;font-size:2rem;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
+/* ── HOME HERO ── */
+.hero{text-align:center;padding:32px 8px 22px;}
+.hero h1{
+  font-family:'Pacifico',cursive;font-size:2.1rem;
+  background:var(--grad-main);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  line-height:1.2;margin-bottom:8px;}
-.hero p{color:var(--muted);font-size:.95rem;font-weight:600;}
-
-.subjects-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;
+  line-height:1.25;margin-bottom:10px;
 }
+.hero p{color:var(--muted);font-size:.92rem;font-weight:600;line-height:1.6;}
+
+/* ── SUBJECTS GRID ── */
+.subjects-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
 .subject-card{
   border-radius:var(--radius);padding:18px 14px;
-  cursor:pointer;transition:transform .2s,box-shadow .2s;
+  cursor:pointer;transition:transform .18s,box-shadow .18s;
   position:relative;overflow:hidden;
-  display:flex;flex-direction:column;align-items:flex-start;gap:6px;
-  min-height:110px;
+  display:flex;flex-direction:column;align-items:flex-start;gap:5px;
+  min-height:108px;
+  border:1px solid rgba(255,255,255,.1);
 }
-.subject-card:active{transform:scale(.96);}
-.subject-card .emoji{font-size:2rem;}
-.subject-card h3{font-weight:800;font-size:.95rem;line-height:1.2;}
-.subject-card p{font-size:.75rem;opacity:.85;font-weight:600;}
+.subject-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 60%);
+  pointer-events:none;
+}
+.subject-card:active{transform:scale(.95);}
+.subject-card .emoji{font-size:1.9rem;}
+.subject-card h3{font-weight:800;font-size:.92rem;line-height:1.2;color:#fff;}
+.subject-card p{font-size:.72rem;opacity:.8;font-weight:600;color:#fff;}
 .subject-card .arrow{
   position:absolute;right:12px;bottom:12px;
-  width:28px;height:28px;border-radius:50%;
-  background:rgba(255,255,255,.25);
-  display:flex;align-items:center;justify-content:center;font-size:.8rem;
+  width:26px;height:26px;border-radius:50%;
+  background:rgba(255,255,255,.2);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#fff;
 }
 
-/* ── FICHE PAGE ── */
+/* ── FICHE PAGE — reference style ── */
 .back-btn{
-  display:flex;align-items:center;gap:8px;
-  color:var(--muted);font-weight:700;font-size:.9rem;
-  cursor:pointer;margin-bottom:16px;
-  background:none;border:none;
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--muted);font-weight:700;font-size:.88rem;
+  cursor:pointer;margin-bottom:18px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:30px;padding:7px 14px;transition:all .2s;
 }
-.back-btn:hover{color:var(--text);}
-.fiche-header{
-  border-radius:var(--radius);padding:20px 16px;
-  margin-bottom:16px;
-  display:flex;align-items:center;gap:14px;
-}
-.fiche-header .big-emoji{font-size:3rem;}
-.fiche-header h2{font-family:'Pacifico',cursive;font-size:1.4rem;}
-.fiche-header p{font-size:.85rem;opacity:.85;font-weight:600;}
+.back-btn:hover{color:var(--text);background:var(--surface2);}
 
+/* Fiche header banner */
+.fiche-header{
+  border-radius:var(--radius);padding:22px 20px;
+  margin-bottom:20px;color:#fff;
+  position:relative;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+}
+.fiche-header::after{
+  content:'';position:absolute;right:-20px;top:-20px;
+  width:110px;height:110px;border-radius:50%;
+  background:rgba(255,255,255,.07);pointer-events:none;
+}
+.fiche-header::before{
+  content:'';position:absolute;right:40px;bottom:-35px;
+  width:150px;height:150px;border-radius:50%;
+  background:rgba(255,255,255,.04);pointer-events:none;
+}
+.fiche-header .big-emoji{font-size:2.4rem;display:block;margin-bottom:10px;position:relative;z-index:1;}
+.fiche-header h2{font-size:1.4rem;font-weight:800;line-height:1.2;position:relative;z-index:1;}
+.fiche-header p{font-size:.82rem;opacity:.75;margin-top:4px;font-weight:600;position:relative;z-index:1;}
+
+/* Section card — accordion style */
 .section-card{
-  background:var(--card);border-radius:var(--radius);
-  padding:16px;margin-bottom:12px;
-  border:1px solid rgba(255,255,255,.06);
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);margin-bottom:10px;overflow:hidden;
 }
-.section-card h4{
-  font-weight:800;font-size:.95rem;margin-bottom:10px;
-  display:flex;align-items:center;gap:8px;
+.section-card-header{
+  padding:14px 18px;display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;user-select:none;
 }
-.section-card ul{padding-left:0;list-style:none;}
-.section-card ul li{
-  padding:6px 0;font-size:.88rem;font-weight:600;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  display:flex;align-items:flex-start;gap:8px;line-height:1.4;
+.section-card-header:active{opacity:.8;}
+.section-card-header h4{
+  font-weight:800;font-size:.92rem;display:flex;align-items:center;gap:10px;
+  color:var(--text);
 }
-.section-card ul li::before{content:'✦';font-size:.7rem;margin-top:3px;flex-shrink:0;}
-.memo-box{
-  border-radius:14px;padding:14px;margin-bottom:8px;
-  border-left:4px solid;font-size:.88rem;font-weight:600;line-height:1.5;
+.section-card-arrow{font-size:.8rem;color:var(--muted);transition:transform .25s;}
+.section-card.open .section-card-arrow{transform:rotate(180deg);}
+.section-card-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s cubic-bezier(.4,0,.2,1),padding .3s;
+  padding:0 18px;
 }
+.section-card.open .section-card-body{
+  max-height:6000px;padding:0 18px 18px;
+}
+
+/* Info block (main content rows) */
+.fiche-info-block{
+  border-radius:10px;padding:13px 15px;margin-bottom:9px;
+  border-left:3px solid;
+  font-size:.88rem;line-height:1.65;
+}
+.fiche-info-title{
+  font-size:.7rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.07em;margin-bottom:7px;opacity:.8;
+}
+.fiche-items{margin:0;padding:0;list-style:none;}
+.fiche-items li{
+  padding:5px 0 5px 14px;position:relative;
+  font-size:.87rem;line-height:1.6;color:#C4BAE0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.fiche-items li:last-child{border-bottom:none;}
+.fiche-items li::before{
+  content:'•';position:absolute;left:3px;
+  font-weight:900;font-size:.7rem;top:8px;
+}
+
+/* Memo block — golden */
+.fiche-memo-block{
+  background:rgba(251,191,36,.07);
+  border:1px solid rgba(251,191,36,.25);
+  border-left:3px solid var(--amber);
+  border-radius:10px;padding:13px 15px;margin-bottom:8px;
+}
+.fiche-memo-title{
+  font-size:.7rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--amber);margin-bottom:7px;
+}
+.fiche-memo-item{
+  font-size:.87rem;line-height:1.6;color:#D8D0EE;
+  padding:3px 0 3px 16px;position:relative;
+}
+.fiche-memo-item::before{content:'→';position:absolute;left:0;color:var(--amber);font-weight:700;font-size:.8rem;}
+
+/* Astuce block — blue accent */
+.fiche-astuce{
+  background:rgba(129,140,248,.07);
+  border:1px solid rgba(129,140,248,.2);
+  border-left:3px solid var(--violet);
+  border-radius:10px;padding:13px 15px;margin-bottom:8px;
+}
+.fiche-astuce-title{
+  font-size:.7rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--violet);margin-bottom:7px;
+}
+.fiche-astuce-item{
+  font-size:.87rem;line-height:1.6;color:#C4BAE0;
+  padding:3px 0 3px 16px;position:relative;
+}
+.fiche-astuce-item::before{content:'★';position:absolute;left:0;color:var(--violet);font-size:.7rem;top:6px;}
+
+/* Def table */
+.fiche-def-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.86rem;}
+.fiche-def-table th{
+  font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  padding:7px 10px;text-align:left;border-bottom:1px solid var(--border);
+  color:var(--muted);
+}
+.fiche-def-table td{
+  padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05);
+  vertical-align:top;line-height:1.5;color:#C4BAE0;
+}
+.fiche-def-table tr:last-child td{border-bottom:none;}
+.fiche-def-table td:first-child{font-weight:700;color:var(--text);white-space:nowrap;font-size:.84rem;}
+
+/* Formula row */
+.fiche-formula-row{
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.87rem;
+}
+.fiche-formula-row:last-child{border-bottom:none;}
+.fiche-formula-label{font-weight:700;color:var(--text);min-width:130px;}
+.fiche-formula-val{
+  font-family:'DM Mono',monospace;font-size:.84rem;color:var(--cyan);
+  background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);
+  border-radius:6px;padding:2px 9px;
+}
+.fiche-formula-note{font-size:.8rem;color:var(--muted);}
+
+/* Timeline */
+.fiche-timeline{position:relative;padding-left:22px;margin:6px 0;}
+.fiche-timeline::before{
+  content:'';position:absolute;left:7px;top:6px;bottom:6px;
+  width:1.5px;background:var(--border);
+}
+.fiche-tl-item{position:relative;margin-bottom:12px;}
+.fiche-tl-item::before{
+  content:'';position:absolute;left:-18px;top:6px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--violet);
+}
+.fiche-tl-date{font-size:.74rem;font-weight:700;color:var(--violet);margin-bottom:2px;letter-spacing:.04em;}
+.fiche-tl-event{font-size:.88rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:2px;}
+.fiche-tl-detail{font-size:.82rem;color:var(--muted);line-height:1.5;}
+
+/* Section divider label */
+.fiche-section-label{
+  font-size:.7rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--muted);
+  margin:14px 0 8px;padding-left:2px;
+}
+
 
 /* ── QUIZ PAGE ── */
-.quiz-intro{text-align:center;padding:20px 8px;}
-.quiz-intro h2{font-family:'Pacifico',cursive;font-size:1.6rem;
-  background:linear-gradient(135deg,var(--pink),var(--yellow));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
-.quiz-intro p{color:var(--muted);font-weight:600;font-size:.9rem;margin-bottom:20px;}
-
-.subject-select{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;}
-.subj-pill{
-  padding:8px 14px;border-radius:20px;font-weight:700;font-size:.82rem;
-  cursor:pointer;border:2px solid transparent;transition:all .2s;
-  color:#fff;
+.quiz-intro{text-align:center;padding:22px 8px 16px;}
+.quiz-intro h2{
+  font-family:'Pacifico',cursive;font-size:1.6rem;
+  background:var(--grad-quiz);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;
 }
-.subj-pill.selected{transform:scale(1.08);}
+.quiz-intro p{color:var(--muted);font-weight:600;font-size:.9rem;margin-bottom:18px;}
+
+.subject-select{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:18px;}
+.subj-pill{
+  padding:7px 13px;border-radius:30px;font-weight:700;font-size:.8rem;
+  cursor:pointer;border:1.5px solid transparent;transition:all .18s;color:#fff;
+  opacity:.55;
+}
+.subj-pill.selected{opacity:1;transform:scale(1.04);}
 
 .big-btn{
   display:block;width:100%;padding:16px;
   border-radius:var(--radius);border:none;
-  font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem;
-  cursor:pointer;transition:all .2s;color:#fff;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
-  box-shadow:0 4px 20px rgba(168,85,247,.4);
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:1.05rem;
+  cursor:pointer;transition:all .18s;color:#fff;
+  background:var(--grad-main);
+  box-shadow:0 6px 24px rgba(129,140,248,.35);
+  letter-spacing:.01em;
 }
-.big-btn:active{transform:scale(.97);}
+.big-btn:active{transform:scale(.97);box-shadow:none;}
 
 /* quiz question */
 .quiz-q-wrap{max-width:480px;margin:0 auto;}
-.quiz-progress{
-  display:flex;align-items:center;gap:10px;margin-bottom:16px;
+.quiz-progress{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.progress-bar{
+  flex:1;height:5px;background:rgba(255,255,255,.08);
+  border-radius:3px;overflow:hidden;
 }
-.progress-bar{flex:1;height:8px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden;}
-.progress-fill{height:100%;border-radius:4px;transition:width .4s;
-  background:linear-gradient(90deg,var(--pink),var(--purple));}
-.q-num{font-weight:800;font-size:.85rem;color:var(--muted);}
+.progress-fill{
+  height:100%;border-radius:3px;transition:width .4s ease;
+  background:linear-gradient(90deg,var(--rose),var(--violet));
+}
+.q-num{font-weight:800;font-size:.82rem;color:var(--muted);white-space:nowrap;}
 
 .question-card{
-  background:var(--card);border-radius:var(--radius);
-  padding:22px 18px;margin-bottom:14px;
-  border:1px solid rgba(255,255,255,.08);
-  font-weight:700;font-size:1rem;line-height:1.5;text-align:center;
+  background:var(--surface);border-radius:var(--radius);
+  padding:24px 18px;margin-bottom:12px;
+  border:1px solid var(--border);
+  font-weight:700;font-size:.98rem;line-height:1.55;text-align:center;
 }
 .question-card .q-subject{
-  font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-  margin-bottom:8px;opacity:.7;
+  font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:10px;color:var(--violet);
 }
 
-.answers{display:flex;flex-direction:column;gap:8px;}
+.answers{display:flex;flex-direction:column;gap:7px;}
 .answer-btn{
-  background:var(--card2);border:2px solid rgba(255,255,255,.08);
-  border-radius:14px;padding:14px 16px;
-  font-family:'Nunito',sans-serif;font-weight:700;font-size:.92rem;
-  color:var(--text);cursor:pointer;text-align:left;transition:all .2s;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:14px 16px;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;
+  color:var(--text);cursor:pointer;text-align:left;transition:all .18s;
 }
-.answer-btn:active{transform:scale(.98);}
-.answer-btn.correct{background:#10B98120;border-color:var(--green);color:var(--green);}
-.answer-btn.wrong{background:#EF444420;border-color:var(--red);color:var(--red);}
-.answer-btn.reveal{background:var(--card2);opacity:.4;}
+.answer-btn:hover{background:var(--surface2);border-color:var(--border2);}
+.answer-btn:active{transform:scale(.985);}
+.answer-btn.correct{
+  background:rgba(52,211,153,.1);border-color:var(--emerald);
+  color:var(--emerald);
+}
+.answer-btn.wrong{
+  background:rgba(251,113,133,.1);border-color:var(--coral);
+  color:var(--coral);
+}
+.answer-btn.reveal{background:var(--surface);opacity:.35;pointer-events:none;}
 
 .feedback{
-  border-radius:14px;padding:12px 16px;margin-top:10px;
-  font-weight:700;font-size:.9rem;text-align:center;
-  display:none;
+  border-radius:var(--radius-sm);padding:12px 16px;margin-top:10px;
+  font-weight:700;font-size:.88rem;text-align:center;display:none;
+  line-height:1.5;
 }
 .feedback.show{display:block;}
-.feedback.correct-fb{background:#10B98115;color:var(--green);border:1px solid var(--green);}
-.feedback.wrong-fb{background:#EF444415;color:var(--red);border:1px solid var(--red);}
+.feedback.correct-fb{
+  background:rgba(52,211,153,.08);color:var(--emerald);
+  border:1px solid rgba(52,211,153,.25);
+}
+.feedback.wrong-fb{
+  background:rgba(251,113,133,.08);color:var(--coral);
+  border:1px solid rgba(251,113,133,.25);
+}
 
 .next-btn{
-  margin-top:12px;padding:14px;border-radius:14px;border:none;
-  width:100%;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;
+  margin-top:10px;padding:14px;border-radius:var(--radius-sm);border:none;
+  width:100%;font-family:'Nunito',sans-serif;font-weight:800;font-size:.95rem;
   cursor:pointer;color:#fff;display:none;
-  background:linear-gradient(135deg,var(--purple),var(--blue));
+  background:linear-gradient(135deg,var(--indigo),var(--sky));
 }
 .next-btn.show{display:block;}
 
 /* results */
-.results-wrap{text-align:center;padding:20px 8px;}
-.score-circle{
-  width:130px;height:130px;border-radius:50%;margin:0 auto 16px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:conic-gradient(var(--pink) 0deg, var(--purple) 180deg, rgba(255,255,255,.1) 180deg);
-  font-size:2rem;font-weight:900;position:relative;
-}
-.score-circle::before{
-  content:'';position:absolute;inset:8px;border-radius:50%;background:var(--bg);
-}
-.score-circle span{position:relative;z-index:1;}
-.score-sub{font-size:.8rem;font-weight:700;color:var(--muted);}
-
+.results-wrap{text-align:center;padding:18px 4px;}
 .share-box{
-  background:linear-gradient(135deg,#1A1035,#231A48);
-  border-radius:var(--radius);padding:16px;margin-top:16px;
-  border:1px solid rgba(255,255,255,.08);
+  background:var(--surface);border-radius:var(--radius);
+  padding:16px;margin-top:14px;border:1px solid var(--border);
 }
-.share-box h4{font-weight:800;margin-bottom:8px;}
-.share-link{
-  background:rgba(255,255,255,.06);border-radius:10px;
-  padding:10px 12px;font-size:.8rem;color:var(--muted);
-  word-break:break-all;margin-bottom:10px;font-weight:600;
-}
-.share-btns{display:flex;gap:8px;flex-wrap:wrap;}
+.share-box h4{font-weight:800;margin-bottom:10px;font-size:.92rem;}
+.share-btns{display:flex;gap:7px;flex-wrap:wrap;}
 .share-btn{
-  flex:1;padding:10px;border-radius:12px;border:none;
-  font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;
-  cursor:pointer;color:#fff;min-width:100px;
+  flex:1;padding:10px;border-radius:var(--radius-sm);border:none;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;
+  cursor:pointer;color:#fff;min-width:90px;
 }
 
-/* ── COLORS PER SUBJECT ── */
-.c-fr{background:linear-gradient(135deg,#FF6B9D,#C44569);}
-.c-math{background:linear-gradient(135deg,#A855F7,#6D28D9);}
-.c-hist{background:linear-gradient(135deg,#F59E0B,#D97706);}
-.c-geo{background:linear-gradient(135deg,#10B981,#059669);}
-.c-sci{background:linear-gradient(135deg,#3B82F6,#1D4ED8);}
-.c-emc{background:linear-gradient(135deg,#F97316,#EA580C);}
-.c-ang{background:linear-gradient(135deg,#06B6D4,#0284C7);}
-.c-tech{background:linear-gradient(135deg,#EC4899,#9333EA);}
+/* ── SUBJECT COLORS ── */
+.c-fr  {background:linear-gradient(135deg,#F472B6,#E11D48);}
+.c-math{background:linear-gradient(135deg,#818CF8,#4F46E5);}
+.c-hist{background:linear-gradient(135deg,#FBBF24,#B45309);}
+.c-geo {background:linear-gradient(135deg,#34D399,#065F46);}
+.c-sci {background:linear-gradient(135deg,#38BDF8,#0369A1);}
+.c-emc {background:linear-gradient(135deg,#FB923C,#9A3412);}
+.c-ang {background:linear-gradient(135deg,#22D3EE,#0E7490);}
+.c-tech{background:linear-gradient(135deg,#C084FC,#7E22CE);}
 
-.tab.c-fr{background:linear-gradient(135deg,#FF6B9D,#C44569);}
-.tab.c-math{background:linear-gradient(135deg,#A855F7,#6D28D9);}
-.tab.c-hist{background:linear-gradient(135deg,#F59E0B,#D97706);}
-.tab.c-geo{background:linear-gradient(135deg,#10B981,#059669);}
-.tab.c-sci{background:linear-gradient(135deg,#3B82F6,#1D4ED8);}
-.tab.c-emc{background:linear-gradient(135deg,#F97316,#EA580C);}
-.tab.c-ang{background:linear-gradient(135deg,#06B6D4,#0284C7);}
-.tab.c-tech{background:linear-gradient(135deg,#EC4899,#9333EA);}
+.tab.c-fr  {background:linear-gradient(135deg,#F472B6,#E11D48);}
+.tab.c-math{background:linear-gradient(135deg,#818CF8,#4F46E5);}
+.tab.c-hist{background:linear-gradient(135deg,#FBBF24,#B45309);}
+.tab.c-geo {background:linear-gradient(135deg,#34D399,#065F46);}
+.tab.c-sci {background:linear-gradient(135deg,#38BDF8,#0369A1);}
+.tab.c-emc {background:linear-gradient(135deg,#FB923C,#9A3412);}
+.tab.c-ang {background:linear-gradient(135deg,#22D3EE,#0E7490);}
+.tab.c-tech{background:linear-gradient(135deg,#C084FC,#7E22CE);}
 
-.border-fr{border-color:var(--pink);}
-.border-math{border-color:var(--purple);}
-.border-hist{border-color:var(--yellow);}
-.border-geo{border-color:var(--green);}
-.border-sci{border-color:var(--blue);}
-.border-emc{border-color:var(--orange);}
-.border-ang{border-color:var(--teal);}
-.border-tech{border-color:#EC4899;}
-
-/* confetti */
+/* ── CONFETTI ── */
 @keyframes confettiDrop{
   0%{transform:translateY(-10px) rotate(0deg);opacity:1;}
   100%{transform:translateY(100vh) rotate(720deg);opacity:0;}
 }
 .confetti-piece{
-  position:fixed;width:10px;height:10px;border-radius:2px;
+  position:fixed;border-radius:2px;
   animation:confettiDrop 2.5s ease-in forwards;
   pointer-events:none;z-index:999;
 }
 
-/* bounce anim */
-@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-.bounce{animation:bounce 1s ease infinite;}
+/* ── BOUNCE ── */
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+.bounce{animation:bounce 1.1s ease infinite;}
 
-/* toast */
+/* ── TOAST ── */
 .toast{
-  position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
-  background:var(--card);border-radius:30px;padding:10px 20px;
-  font-weight:700;font-size:.9rem;opacity:0;transition:all .3s;
-  border:1px solid rgba(255,255,255,.1);z-index:200;white-space:nowrap;
+  position:fixed;bottom:90px;left:50%;
+  transform:translateX(-50%) translateY(14px);
+  background:var(--surface2);border:1px solid var(--border2);
+  backdrop-filter:blur(16px);
+  border-radius:30px;padding:10px 20px;
+  font-weight:700;font-size:.88rem;opacity:0;
+  transition:all .28s cubic-bezier(.34,1.56,.64,1);
+  z-index:300;white-space:nowrap;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
+/* ── PULSE ── */
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(129,140,248,.4);}
+  50%{box-shadow:0 0 0 10px rgba(129,140,248,0);}
+}
+.pulse{animation:pulse 1.8s infinite;}
+
 /* ── ANNALES ── */
 .annale-card{
-  background:var(--card);border-radius:var(--radius);
-  margin-bottom:14px;overflow:hidden;
-  border:1px solid rgba(255,255,255,.07);
-  transition:transform .2s;
+  background:var(--surface);border-radius:var(--radius);
+  margin-bottom:10px;overflow:hidden;border:1px solid var(--border);
 }
 .annale-header{
-  padding:16px 16px 14px;cursor:pointer;
+  padding:15px 16px;cursor:pointer;
   display:flex;align-items:center;justify-content:space-between;gap:10px;
 }
-.annale-header:active{opacity:.85;}
+.annale-header:active{opacity:.8;}
 .annale-meta{display:flex;align-items:center;gap:10px;flex:1;min-width:0;}
 .annale-icon{
-  width:44px;height:44px;border-radius:12px;
+  width:42px;height:42px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;flex-shrink:0;
+  font-size:1.3rem;flex-shrink:0;
 }
-.annale-info h3{font-weight:800;font-size:.92rem;margin-bottom:2px;}
-.annale-info p{font-size:.78rem;color:var(--muted);font-weight:600;}
-.annale-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;}
+.annale-info h3{font-weight:800;font-size:.9rem;margin-bottom:2px;}
+.annale-info p{font-size:.76rem;color:var(--muted);font-weight:600;}
+.annale-badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px;}
 .badge{
-  display:inline-block;padding:2px 8px;border-radius:10px;
-  font-size:.7rem;font-weight:700;background:rgba(255,255,255,.08);
+  display:inline-block;padding:2px 8px;border-radius:30px;
+  font-size:.68rem;font-weight:700;
+  background:var(--surface2);border:1px solid var(--border);color:var(--muted);
 }
 .annale-toggle{
-  width:28px;height:28px;border-radius:50%;
-  background:rgba(255,255,255,.08);
+  width:26px;height:26px;border-radius:50%;
+  background:var(--surface2);border:1px solid var(--border);
   display:flex;align-items:center;justify-content:center;
-  font-size:.9rem;flex-shrink:0;transition:transform .3s;
+  font-size:.8rem;flex-shrink:0;transition:transform .28s;
 }
 .annale-toggle.open{transform:rotate(180deg);}
-
 .annale-body{display:none;padding:0 16px 16px;}
 .annale-body.open{display:block;}
-
 .annale-tabs{display:flex;gap:6px;margin-bottom:14px;}
 .at-btn{
-  flex:1;padding:9px;border-radius:12px;border:none;
-  font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;
-  cursor:pointer;transition:all .2s;
+  flex:1;padding:9px;border-radius:var(--radius-sm);border:none;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:.8rem;
+  cursor:pointer;transition:all .18s;
 }
-.at-btn.enonce{background:rgba(99,102,241,.15);color:#818CF8;border:1px solid rgba(99,102,241,.3);}
-.at-btn.corrige{background:rgba(16,185,129,.15);color:#34D399;border:1px solid rgba(16,185,129,.3);}
-.at-btn.active-e{background:#6366F1;color:#fff;}
-.at-btn.active-c{background:#10B981;color:#fff;}
+.at-btn.enonce{
+  background:rgba(99,102,241,.1);color:var(--violet);
+  border:1px solid rgba(99,102,241,.25);
+}
+.at-btn.corrige{
+  background:rgba(52,211,153,.1);color:var(--emerald);
+  border:1px solid rgba(52,211,153,.25);
+}
+.at-btn.active-e{background:var(--indigo);color:#fff;border-color:var(--indigo);}
+.at-btn.active-c{background:#059669;color:#fff;border-color:#059669;}
 
-.annale-content{font-size:.88rem;font-weight:600;line-height:1.7;}
-.annale-content h4{font-size:.9rem;font-weight:800;margin:12px 0 6px;
-  padding-left:10px;border-left:3px solid;}
-.annale-content p{margin-bottom:8px;color:#D4C8F0;}
+.annale-content{font-size:.86rem;font-weight:600;line-height:1.72;}
+.annale-content h4{
+  font-size:.88rem;font-weight:800;margin:14px 0 8px;
+  padding-left:10px;border-left:3px solid;color:var(--text);
+}
+.annale-content p{margin-bottom:8px;color:#C4BAE0;line-height:1.6;}
 .annale-content .question-block{
-  background:rgba(99,102,241,.08);border-radius:12px;
-  padding:12px;margin-bottom:10px;
-  border-left:3px solid #6366F1;
+  background:rgba(99,102,241,.06);border-radius:var(--radius-sm);
+  padding:12px;margin-bottom:9px;border-left:2px solid var(--indigo);
 }
 .annale-content .question-block .qnum{
-  font-size:.72rem;font-weight:800;color:#818CF8;
-  text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;
+  font-size:.7rem;font-weight:800;color:var(--violet);
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;
 }
 .annale-content .corrige-block{
-  background:rgba(16,185,129,.08);border-radius:12px;
-  padding:12px;margin-bottom:10px;
-  border-left:3px solid #10B981;
+  background:rgba(52,211,153,.06);border-radius:var(--radius-sm);
+  padding:12px;margin-bottom:9px;border-left:2px solid var(--emerald);
 }
 .annale-content .corrige-block .cnum{
-  font-size:.72rem;font-weight:800;color:#34D399;
-  text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;
+  font-size:.7rem;font-weight:800;color:var(--emerald);
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;
 }
 .annale-content .points{
-  display:inline-block;background:#F59E0B20;color:#F59E0B;
-  border-radius:6px;padding:1px 7px;font-size:.72rem;font-weight:800;
-  margin-left:6px;
+  display:inline-block;background:rgba(251,191,36,.12);color:var(--amber);
+  border-radius:6px;padding:1px 7px;font-size:.7rem;font-weight:800;margin-left:6px;
 }
 .annale-content .tip-box{
-  background:linear-gradient(135deg,#FF6B9D15,#A855F715);
-  border-radius:10px;padding:10px 12px;
-  border:1px solid rgba(255,107,157,.2);margin-top:10px;
-  font-size:.84rem;
+  background:rgba(129,140,248,.08);border-radius:var(--radius-sm);
+  padding:11px 14px;border:1px solid rgba(129,140,248,.18);
+  margin-top:10px;font-size:.83rem;line-height:1.6;color:#C4BAE0;
 }
-/* ── CLASSEMENT / LEADERBOARD ── */
-.lb-setup{background:var(--card);border-radius:var(--radius);padding:18px;margin-bottom:14px;border:1px solid rgba(255,255,255,.07);}
-.lb-setup h3{font-weight:800;font-size:1rem;margin-bottom:4px;}
-.lb-setup p{font-size:.82rem;color:var(--muted);font-weight:600;margin-bottom:12px;line-height:1.5;}
-.lb-input{width:100%;padding:12px 14px;border-radius:12px;border:2px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:var(--text);font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:10px;outline:none;}
-.lb-input:focus{border-color:var(--purple);}
+
+/* ── CLASSEMENT ── */
+.lb-setup{
+  background:var(--surface);border-radius:var(--radius);
+  padding:18px;margin-bottom:12px;border:1px solid var(--border);
+}
+.lb-setup h3{font-weight:800;font-size:.98rem;margin-bottom:4px;}
+.lb-setup p{font-size:.81rem;color:var(--muted);font-weight:600;margin-bottom:12px;line-height:1.55;}
+.lb-input{
+  width:100%;padding:11px 14px;border-radius:var(--radius-sm);
+  border:1px solid var(--border);background:rgba(255,255,255,.04);
+  color:var(--text);font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;
+  margin-bottom:9px;outline:none;transition:border-color .2s;
+}
+.lb-input:focus{border-color:var(--violet);}
 .lb-input::placeholder{color:var(--muted);}
-.lb-save-btn{padding:11px 20px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;}
-.lb-refresh-btn{display:flex;align-items:center;gap:6px;padding:9px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:var(--text);font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;margin-bottom:14px;}
+.lb-save-btn{
+  padding:11px 20px;border-radius:var(--radius-sm);border:none;
+  background:linear-gradient(135deg,var(--indigo),var(--sky));
+  color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;cursor:pointer;
+}
+.lb-refresh-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:9px 15px;border-radius:var(--radius-sm);
+  border:1px solid var(--border);background:var(--surface);
+  color:var(--text);font-family:'Nunito',sans-serif;font-weight:700;font-size:.83rem;
+  cursor:pointer;margin-bottom:12px;transition:background .18s;
+}
+.lb-refresh-btn:hover{background:var(--surface2);}
 .lb-refresh-btn .spin-icon{display:inline-block;transition:transform .3s;}
 .lb-refresh-btn.spinning .spin-icon{animation:lbspin .7s linear infinite;}
 @keyframes lbspin{to{transform:rotate(360deg);}}
-.lb-card{background:var(--card);border-radius:var(--radius);padding:0;margin-bottom:10px;overflow:hidden;border:1px solid rgba(255,255,255,.06);}
-.lb-card.me{border-color:var(--pink);box-shadow:0 0 16px rgba(255,107,157,.2);}
-.lb-row{display:flex;align-items:center;gap:12px;padding:14px 16px;}
-.lb-rank{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9rem;flex-shrink:0;}
-.lb-rank.gold{background:linear-gradient(135deg,#F59E0B,#D97706);color:#fff;}
-.lb-rank.silver{background:linear-gradient(135deg,#9CA3AF,#6B7280);color:#fff;}
-.lb-rank.bronze{background:linear-gradient(135deg,#F97316,#C2410C);color:#fff;}
-.lb-rank.other{background:rgba(255,255,255,.08);color:var(--muted);}
+
+.lb-card{
+  background:var(--surface);border-radius:var(--radius);
+  padding:0;margin-bottom:8px;overflow:hidden;
+  border:1px solid var(--border);transition:border-color .2s;
+}
+.lb-card.me{border-color:var(--rose);box-shadow:0 0 20px rgba(244,114,182,.12);}
+.lb-row{display:flex;align-items:center;gap:12px;padding:13px 15px;}
+.lb-rank{
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:.85rem;flex-shrink:0;
+}
+.lb-rank.gold  {background:linear-gradient(135deg,#FBBF24,#D97706);color:#fff;}
+.lb-rank.silver{background:linear-gradient(135deg,#94A3B8,#64748B);color:#fff;}
+.lb-rank.bronze{background:linear-gradient(135deg,#FB923C,#C2410C);color:#fff;}
+.lb-rank.other {background:var(--surface2);color:var(--muted);}
 .lb-info{flex:1;min-width:0;}
-.lb-name{font-weight:800;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.lb-detail{font-size:.75rem;color:var(--muted);font-weight:600;margin-top:2px;}
+.lb-name{font-weight:800;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lb-detail{font-size:.72rem;color:var(--muted);font-weight:600;margin-top:2px;}
 .lb-score-wrap{text-align:right;flex-shrink:0;}
-.lb-pct{font-weight:900;font-size:1.2rem;}
-.lb-fraction{font-size:.75rem;color:var(--muted);font-weight:700;}
-.lb-bar-wrap{height:4px;background:rgba(255,255,255,.07);border-radius:2px;margin:6px 16px;overflow:hidden;}
-.lb-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--purple));transition:width .6s ease;}
-.lb-empty{text-align:center;padding:30px;color:var(--muted);font-weight:700;}
-.lb-status{font-size:.78rem;color:var(--muted);font-weight:600;text-align:center;margin-top:8px;}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:500;padding:20px;}
+.lb-pct{font-weight:900;font-size:1.15rem;}
+.lb-fraction{font-size:.72rem;color:var(--muted);font-weight:700;}
+.lb-bar-wrap{height:3px;background:rgba(255,255,255,.05);margin:0 15px 12px;border-radius:2px;overflow:hidden;}
+.lb-bar{height:100%;border-radius:2px;background:var(--grad-main);transition:width .6s ease;}
+.lb-empty{text-align:center;padding:32px;color:var(--muted);font-weight:700;font-size:.9rem;}
+.lb-status{font-size:.76rem;color:var(--muted);font-weight:600;text-align:center;margin-top:6px;}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;z-index:500;padding:20px;
+}
 .modal-overlay.hidden{display:none;}
-.modal-box{background:var(--card2);border-radius:var(--radius);padding:24px 20px;width:100%;max-width:340px;border:1px solid rgba(255,255,255,.1);}
-.modal-box h3{font-family:'Pacifico',cursive;font-size:1.3rem;background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
-.modal-box p{font-size:.88rem;color:var(--muted);font-weight:600;margin-bottom:14px;line-height:1.5;}
+.modal-box{
+  background:#0E0C1A;border-radius:var(--radius);
+  padding:26px 22px;width:100%;max-width:340px;
+  border:1px solid var(--border2);
+}
+.modal-box h3{
+  font-family:'Pacifico',cursive;font-size:1.3rem;
+  background:var(--grad-main);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:6px;
+}
+.modal-box p{font-size:.86rem;color:var(--muted);font-weight:600;margin-bottom:14px;line-height:1.5;}
 </style>
 </head>
 <body>
@@ -504,15 +705,15 @@ nav::-webkit-scrollbar{display:none;}
       <div class="arrow">→</div>
     </div>
   </div>
-  <div style="margin-top:20px;background:linear-gradient(135deg,#FF6B9D22,#A855F722);border-radius:var(--radius);padding:18px;border:1px solid rgba(168,85,247,.2);">
-    <div style="font-weight:800;font-size:1rem;margin-bottom:6px;">🎮 Teste tes copines !</div>
-    <div style="color:var(--muted);font-size:.88rem;font-weight:600;margin-bottom:12px;">Lance un quiz et partage-le pour voir qui a le meilleur score !</div>
-    <button class="big-btn pulse" onclick="showPage('quiz')" style="padding:12px;">Jouer au QUIZ →</button>
+  <div style="margin-top:16px;background:linear-gradient(135deg,rgba(244,114,182,.08),rgba(129,140,248,.08));border-radius:var(--radius);padding:18px;border:1px solid rgba(129,140,248,.2);">
+    <div style="font-weight:800;font-size:.98rem;margin-bottom:5px;">🎮 Défie tes copines !</div>
+    <div style="color:var(--muted);font-size:.86rem;font-weight:600;margin-bottom:13px;line-height:1.5;">Lance un quiz et compare vos scores en temps réel !</div>
+    <button class="big-btn pulse" onclick="showPage('quiz')" style="padding:13px;">Jouer au QUIZ →</button>
   </div>
-  <div style="margin-top:12px;background:linear-gradient(135deg,#6366F122,#8B5CF622);border-radius:var(--radius);padding:18px;border:1px solid rgba(99,102,241,.2);">
-    <div style="font-weight:800;font-size:1rem;margin-bottom:6px;">📋 Annales – Sujets &amp; Corrigés</div>
-    <div style="color:var(--muted);font-size:.88rem;font-weight:600;margin-bottom:12px;">Entraîne-toi sur de vrais sujets du brevet des années précédentes !</div>
-    <button class="big-btn" onclick="showPage('annales')" style="padding:12px;background:linear-gradient(135deg,#6366F1,#8B5CF6);box-shadow:0 4px 20px rgba(99,102,241,.4);">Voir les Annales →</button>
+  <div style="margin-top:10px;background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(34,211,238,.08));border-radius:var(--radius);padding:18px;border:1px solid rgba(99,102,241,.2);">
+    <div style="font-weight:800;font-size:.98rem;margin-bottom:5px;">📋 Annales – Sujets &amp; Corrigés</div>
+    <div style="color:var(--muted);font-size:.86rem;font-weight:600;margin-bottom:13px;">Entraîne-toi sur de vrais sujets du brevet !</div>
+    <button class="big-btn" onclick="showPage('annales')" style="padding:13px;background:var(--grad-ann);box-shadow:0 6px 24px rgba(99,102,241,.3);">Voir les Annales →</button>
   </div>
 </div>
 
@@ -540,10 +741,11 @@ nav::-webkit-scrollbar{display:none;}
     </div>
     <div style="margin-bottom:16px;">
       <div style="font-weight:800;font-size:.9rem;margin-bottom:10px;color:var(--muted);">Nombre de questions :</div>
-      <div style="display:flex;gap:8px;">
-        <button class="qcount-btn" data-n="5" onclick="setQCount(5,this)" style="flex:1;padding:10px;border-radius:12px;border:2px solid var(--pink);background:var(--pink)20;color:var(--pink);font-family:Nunito;font-weight:700;cursor:pointer;">5 questions</button>
-        <button class="qcount-btn" data-n="10" onclick="setQCount(10,this)" style="flex:1;padding:10px;border-radius:12px;border:2px solid var(--purple);background:rgba(168,85,247,.15);color:var(--purple);font-family:Nunito;font-weight:700;cursor:pointer;">10 questions</button>
-        <button class="qcount-btn" data-n="20" onclick="setQCount(20,this)" style="flex:1;padding:10px;border-radius:12px;border:2px solid var(--blue);background:rgba(59,130,246,.15);color:var(--blue);font-family:Nunito;font-weight:700;cursor:pointer;">20 questions</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <button class="qcount-btn" data-n="20" onclick="setQCount(20,this)" style="padding:11px;border-radius:var(--radius-sm);border:1px solid var(--rose);background:rgba(244,114,182,.1);color:var(--rose);font-family:Nunito;font-weight:800;font-size:.9rem;cursor:pointer;">20 questions</button>
+        <button class="qcount-btn" data-n="30" onclick="setQCount(30,this)" style="padding:11px;border-radius:var(--radius-sm);border:1px solid var(--violet);background:rgba(129,140,248,.1);color:var(--violet);font-family:Nunito;font-weight:800;font-size:.9rem;cursor:pointer;">30 questions</button>
+        <button class="qcount-btn" data-n="50" onclick="setQCount(50,this)" style="padding:11px;border-radius:var(--radius-sm);border:1px solid var(--cyan);background:rgba(34,211,238,.1);color:var(--cyan);font-family:Nunito;font-weight:800;font-size:.9rem;cursor:pointer;">50 questions</button>
+        <button class="qcount-btn" data-n="100" onclick="setQCount(100,this)" style="padding:11px;border-radius:var(--radius-sm);border:1px solid var(--amber);background:rgba(251,191,36,.1);color:var(--amber);font-family:Nunito;font-weight:800;font-size:.9rem;cursor:pointer;">100 questions 🔥</button>
       </div>
     </div>
     <button class="big-btn" onclick="startQuiz()">🚀 C'est parti !</button>
@@ -588,8 +790,8 @@ nav::-webkit-scrollbar{display:none;}
     <input class="lb-input" id="lb-gist-id" type="text" placeholder="ID du Gist (ex: a1b2c3d4e5f6…)" autocomplete="off">
     <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
       <button class="lb-save-btn" onclick="saveGistConfig()">💾 Sauvegarder</button>
-      <a href="https://gist.github.com" target="_blank" style="font-size:.8rem;color:var(--purple);font-weight:700;text-decoration:none;">📎 Créer un Gist →</a>
-      <a href="https://github.com/settings/tokens" target="_blank" style="font-size:.8rem;color:var(--teal);font-weight:700;text-decoration:none;">🔑 Créer un token →</a>
+      <a href="https://gist.github.com" target="_blank" style="font-size:.8rem;color:var(--violet);font-weight:700;text-decoration:none;">📎 Créer un Gist →</a>
+      <a href="https://github.com/settings/tokens" target="_blank" style="font-size:.8rem;color:var(--cyan);font-weight:700;text-decoration:none;">🔑 Créer un token →</a>
     </div>
     <div style="font-size:.75rem;color:var(--muted);margin-top:10px;font-weight:600;line-height:1.6;">
       💡 Token requis : permissions <strong>gist</strong> uniquement. Partage l'ID du Gist (pas le token !) avec tes copines.
@@ -629,506 +831,65 @@ nav::-webkit-scrollbar{display:none;}
 
 <script>
 // ─── DATA ────────────────────────────────────────────────────────────────────
+
+// ─── FICHES DATA (rich content) ───────────────────────────────────────────────
 const FICHES = {
   fr: {
-    name:'Français',emoji:'📖',color:'c-fr',
-    sections:[
-      {title:'📝 Types de textes & narrateur', items:[
-        'TEXTE NARRATIF : raconte une histoire avec un narrateur, des personnages, un cadre spatio-temporel',
-        'NARRATEUR INTERNE (homodiégétique) : il raconte à la 1ère personne (je/nous), fait partie de l\'histoire — ex : "Je traversai la forêt sans m\'arrêter."',
-        'NARRATEUR EXTERNE (hétérodiégétique) : il raconte à la 3ème personne (il/elle), ne fait PAS partie de l\'histoire',
-        'NARRATEUR OMNISCIENT : il connaît les pensées, sentiments et motivations de TOUS les personnages',
-        'SCHÉMA NARRATIF en 5 étapes : 1) Situation initiale (état stable) → 2) Élément perturbateur (rupture) → 3) Péripéties (actions) → 4) Élément de résolution → 5) Situation finale (nouvel équilibre)',
-        'TEXTE DESCRIPTIF : donne à voir un lieu, un personnage, une atmosphère ; souvent à l\'imparfait',
-        'TEXTE ARGUMENTATIF : défend une thèse avec des arguments et des exemples, structure : intro → développement → conclusion',
-        'TEXTE POÉTIQUE : travaille la musicalité (rimes, rythme), les images (métaphores), les émotions',
-      ]},
-      {title:'⏱️ Les temps du récit & modes', items:[
-        'IMPARFAIT : description du décor, état, habitude dans le passé — "Le ciel était gris, le vent soufflait."',
-        'PASSÉ SIMPLE : action principale, précise, terminée dans le récit — "Il courut, saisit l\'épée, frappa."',
-        'PLUS-QUE-PARFAIT : action antérieure à une autre action passée — "Elle avait préparé son sac la veille."',
-        'PRÉSENT DE NARRATION : présent utilisé pour rendre un récit passé plus vivant et dynamique',
-        'CONDITIONNEL PRÉSENT : action hypothétique, souhait, politesse — "Si j\'étudiais, j\'aurais de bonnes notes."',
-        'SUBJONCTIF PRÉSENT : après expressions de doute, volonté, sentiment — "Il faut que tu viennes."',
-        'INFINITIF : forme nominale du verbe, jamais conjugué — ne pas confondre -ER (infinitif) et -É (participe passé)',
-      ]},
-      {title:'🎨 Figures de style (à connaître par cœur)', items:[
-        'COMPARAISON : rapproche deux éléments avec un outil (comme, tel que, semblable à…) — "Il est courageux comme un lion."',
-        'MÉTAPHORE : comparaison SANS outil comparatif — "C\'est un lion." (= il est courageux)',
-        'PERSONNIFICATION : attribue des caractéristiques humaines à un objet/animal/abstraction — "La forêt murmure ses secrets."',
-        'HYPERBOLE : exagération pour amplifier un effet — "Je t\'ai attendu mille ans !"',
-        'ANTITHÈSE : opposition de deux idées dans la même phrase — "Il est si grand qu\'il semble petit."',
-        'ANAPHORE : répétition d\'un mot/groupe en début de phrases successives — "Rome, l\'unique objet de mon ressentiment ! Rome, à qui vient ton bras d\'immoler mon amant !"',
-        'EUPHÉMISME : atténue une réalité dure — "Il nous a quittés." (= il est mort)',
-        'IRONIE : dit le contraire de ce qu\'on pense pour se moquer — "Quelle belle journée !" (sous la pluie)',
-        'ALLITÉRATION : répétition d\'un même son consonantique — "Pour qui sont ces serpents qui sifflent sur vos têtes."',
-        'ASSONANCE : répétition d\'un même son vocalique — "Les sanglots longs des violons de l\'automne."',
-      ]},
-      {title:'📚 Grammaire : accord & syntaxe', items:[
-        'ACCORD SUJET-VERBE : le verbe s\'accorde TOUJOURS en personne et en nombre avec son sujet — attention aux sujets inversés, aux sujets séparés du verbe',
-        'ACCORD DU PARTICIPE PASSÉ avec ÊTRE : s\'accorde avec le sujet — "Elle est partie. Ils sont arrivés."',
-        'ACCORD DU PARTICIPE PASSÉ avec AVOIR : s\'accorde avec le COD si le COD est AVANT le verbe — "La robe que j\'ai mise" (COD = robe, fém. sing. → mise)',
-        'PROPOSITION PRINCIPALE vs SUBORDONNÉE : la subordonnée dépend de la principale',
-        'SUBORDONNÉES RELATIVES : introduites par qui (sujet), que (COD), dont (complément de nom), où (lieu/temps)',
-        'SUBORDONNÉES CONJONCTIVES : introduites par que, quand, si, comme, parce que, bien que…',
-        'DISCOURS DIRECT : guillemets + tiret avant chaque réplique, verbe introducteur — "Viens !", dit-il.',
-        'DISCOURS INDIRECT : transformation — "Il dit qu\'il viendrait." (concordance des temps !)',
-        'FONCTIONS GRAMMATICALES : sujet, COD, COI, CC (lieu, temps, manière, cause), attribut du sujet',
-        'NATURE des mots : nom, verbe, adjectif qualificatif, adverbe, pronom, préposition, conjonction, déterminant',
-      ]},
-      {title:'✏️ Orthographe & homophones', items:[
-        'a / à : a = verbe avoir (remplaçable par avait) — à = préposition. "Il a faim." / "Il va à l\'école."',
-        'est / et : est = verbe être (remplaçable par était) — et = conjonction. "Il est grand et fort."',
-        'ou / où : ou = choix (remplaçable par ou bien) — où = lieu/temps. "Où vas-tu, toi ou lui ?"',
-        'ce / se : ce = démonstratif (avant nom ou c\'est) — se = pronom réfléchi. "Ce garçon se lève."',
-        'son / sont : son = déterminant possessif — sont = verbe être (remplaçable par étaient)',
-        'on / ont : on = pronom sujet — ont = verbe avoir (remplaçable par avaient)',
-        'mais / mes / met/mets : mais = conjonction ; mes = mon au pluriel ; met/mets = verbe mettre',
-        'TERMINAISONS EN -ER / -É : si on peut remplacer par "vendre" → infinitif (-er) ; si on peut remplacer par "vendu" → participe (-é)',
-        'ADJECTIFS IRRÉGULIERS : beau/belle/beaux, vieux/vieille/vieux, nouveau/nouvelle/nouveaux, long/longue',
-        'PLURIELS IRRÉGULIERS : œil/yeux, travail/travaux, cheval/chevaux, bail/baux',
-      ]},
-      {title:'🗣️ Argumentation & oral', items:[
-        'PLAN D\'UN TEXTE ARGUMENTATIF : Introduction (accroche + présentation du sujet + annonce du plan) → Développement (thèse + arguments + exemples) → Conclusion (bilan + ouverture)',
-        'ARGUMENT = idée générale qui soutient la thèse',
-        'EXEMPLE = fait concret, statistique, œuvre, événement qui illustre l\'argument',
-        'CONCESSION : reconnaître la part de vérité adverse — "Certes… mais…" / "Il est vrai que… cependant…"',
-        'CONNECTEURS LOGIQUES : Addition (de plus, en outre, également) ; Opposition (mais, cependant, or, pourtant) ; Cause (car, parce que, puisque) ; Conséquence (donc, ainsi, c\'est pourquoi) ; Illustration (par exemple, c\'est le cas de…)',
-        'ANALYSE D\'UN TEXTE : méthode QQOQCP — Qui ? Quoi ? Où ? Quand ? Comment ? Pourquoi ?',
-        'À L\'ORAL DU BREVET : présentation de 5 min sur une œuvre lue + question du jury ; voix claire, débit régulier, regard vers l\'examinateur, éviter les tics de langage',
-        'CITER LE TEXTE : toujours entre guillemets, préciser la ligne — "Comme le montre le texte ligne 3 : « … »"',
-      ]},
-    ],
-    memo:[
-      {color:'#FF6B9D30',border:'#FF6B9D',text:'💡 ASTUCE ACCORD : remplace "avoir" par "être" pour tester → "La lettre que j\'ai écrite" → elle a été écrite → accord avec "lettre" (fém.) → écrite ✓'},
-      {color:'#A855F730',border:'#A855F7',text:'⭐ FIGURES : Comparaison = AVEC outil (comme) ; Métaphore = SANS outil ; Personnification = humain attribué à non-humain ; Hyperbole = exagération'},
-      {color:'#F59E0B30',border:'#F59E0B',text:'🎯 ORAL – méthode PEEL : Point (thèse) → Explication → Exemple (citation) → Lien (rappel de la question). Toujours citer le texte !'},
-      {color:'#10B98130',border:'#10B981',text:'📝 RÉDACTION : Introduction 3 lignes (accroche + thème + plan) → 2-3 paragraphes → Conclusion 2 lignes. Relire l\'orthographe à la fin !'},
+    name:'Français', emoji:'📖', color:'linear-gradient(135deg,#E11D48,#F472B6)',
+    fiches:[
+      {title:'Analyser un texte — Méthode complète', content:`<div class="sub-section"><div class="sub-section-title">Les 6 étapes de lecture</div><div class="info-block" style="background:rgba(244,114,182,.07);border-color:#F472B6"><ul><li><strong>Étape 1 — Lecture globale :</strong> Lire sans s'arrêter pour saisir le sens d'ensemble.</li><li><strong>Étape 2 — Genre et type :</strong> Narratif / descriptif / argumentatif / poétique / théâtral ?</li><li><strong>Étape 3 — Contexte énonciatif :</strong> Qui parle ? À qui ? Narrateur, focalisation.</li><li><strong>Étape 4 — Champ lexical dominant :</strong> Souligner les mots du même thème.</li><li><strong>Étape 5 — Procédés stylistiques :</strong> Relever + nommer + expliquer l'EFFET sur le lecteur.</li><li><strong>Étape 6 — Interprétation :</strong> Quelle vision du monde l'auteur exprime-t-il ?</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Figures de style — tableau complet</div><table class="def-table"><thead><tr><th>Figure</th><th>Définition</th><th>Exemple + effet</th></tr></thead><tbody><tr><td class="key">Métaphore</td><td>Comparaison sans outil</td><td>« La vie est un naufrage » → image forte</td></tr><tr><td class="key">Comparaison</td><td>Rapprochement avec outil (comme, tel…)</td><td>« Courageux comme un lion »</td></tr><tr><td class="key">Personnification</td><td>Donner vie à une chose</td><td>« Le vent gémissait » → atmosphère animée</td></tr><tr><td class="key">Hyperbole</td><td>Exagération volontaire</td><td>« Je meurs de faim »</td></tr><tr><td class="key">Antithèse</td><td>Opposition de deux idées</td><td>« Il faisait beau et terrible »</td></tr><tr><td class="key">Anaphore</td><td>Répétition en début de phrase</td><td>« Je veux… Je veux… » → obsession, rythme</td></tr><tr><td class="key">Oxymore</td><td>Alliance de mots contraires</td><td>« Cette obscure clarté »</td></tr><tr><td class="key">Allitération</td><td>Répétition d'une consonne</td><td>« Pour qui sont ces serpents… »</td></tr><tr><td class="key">Chiasme</td><td>Inversion croisée A-B-B-A</td><td>« Manger pour vivre / vivre pour manger »</td></tr><tr><td class="key">Euphémisme</td><td>Atténuer une réalité dure</td><td>« Il nous a quittés »</td></tr><tr><td class="key">Litote</td><td>Dire moins pour exprimer plus</td><td>« Va, je ne te hais point » = je t'aime</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Registres littéraires</div><table class="def-table"><thead><tr><th>Registre</th><th>Caractéristiques</th><th>Indices repérables</th></tr></thead><tbody><tr><td class="key">Lyrique</td><td>Expression des émotions intimes</td><td>Champs lex. : cœur, larmes, âme · Pronoms je/tu</td></tr><tr><td class="key">Épique</td><td>Héroïsme, combat, grandeur</td><td>Hyperboles, comparaisons guerrières</td></tr><tr><td class="key">Tragique</td><td>Destin inéluctable, mort</td><td>« destin », « condamné », « impossible »</td></tr><tr><td class="key">Comique</td><td>Déclenche le rire</td><td>Quiproquo, répétition, ironie</td></tr><tr><td class="key">Fantastique</td><td>Hésitation réel / surnaturel</td><td>Doute du narrateur, vocabulaire de l'étrange</td></tr></tbody></table></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Accord PP avec avoir : demander « quoi/qui ? » après le verbe → si la réponse est avant = accord</li><li>Subjonctif : méfier de « espérer que » → indicatif ! (J'espère qu'il viendra)</li><li>Voix passive : sujet + être conjugué + participe passé accordé + (par + agent)</li></ul></div>`},
+      {title:'Grammaire — Temps, accords, homophones', content:`<div class="sub-section"><div class="sub-section-title">Temps du récit</div><table class="def-table"><thead><tr><th>Temps</th><th>Emploi dans le récit</th></tr></thead><tbody><tr><td><strong>Passé simple</strong></td><td>Action principale, ponctuelle, terminée. Premier plan du récit.</td></tr><tr><td><strong>Imparfait</strong></td><td>Description, habitude, action de fond, second plan.</td></tr><tr><td><strong>Plus-que-parfait</strong></td><td>Action antérieure à une autre action passée.</td></tr><tr><td><strong>Présent de narration</strong></td><td>Présent utilisé pour rendre le récit plus vivant et dynamique.</td></tr></tbody></table><div class="memo-block"><div class="memo-block-title">Accord du participe passé</div><div class="memo-item"><strong>Avec être :</strong> Accord avec le sujet. Elle est partie. Ils sont arrivés.</div><div class="memo-item"><strong>Avec avoir :</strong> Accord avec le COD si placé AVANT le verbe. La robe que j'ai mise.</div><div class="memo-item"><strong>Test :</strong> Demander « quoi ? » ou « qui ? » après le verbe → si la réponse est avant = accord !</div></div></div><div class="sub-section"><div class="sub-section-title">Subjonctif présent — emploi</div><table class="def-table"><thead><tr><th>Contexte</th><th>Exemple</th></tr></thead><tbody><tr><td><strong>Verbes de volonté</strong> (vouloir, souhaiter…)</td><td>Je veux que tu viennes.</td></tr><tr><td><strong>Verbes de doute</strong> (douter, nier…)</td><td>Je doute qu'il soit là.</td></tr><tr><td><strong>Conjonctions</strong> (bien que, pour que…)</td><td>Bien qu'il pleuve.</td></tr><tr><td><strong>⚠️ Piège</strong> : « après que » → indicatif !</td><td>Après qu'il est parti.</td></tr></tbody></table><div class="memo-block"><div class="memo-block-title">Irréguliers à mémoriser</div><div class="memo-item">être : que je sois · avoir : que j'aie</div><div class="memo-item">faire : que je fasse · aller : que j'aille · pouvoir : que je puisse</div></div></div><div class="sub-section"><div class="sub-section-title">Homophones — tableau complet</div><table class="def-table"><thead><tr><th>Homophone</th><th>Test / Règle</th></tr></thead><tbody><tr><td class="key">a / à</td><td>Remplacer par avait → « a » si ça marche</td></tr><tr><td class="key">on / ont</td><td>Remplacer par ils ont → « ont » si ça marche</td></tr><tr><td class="key">ce / se</td><td>ce = démonstratif. se = pronom réfléchi</td></tr><tr><td class="key">leur / leurs</td><td>leur = pronom (invariable) / leurs = adjectif (pluriel)</td></tr><tr><td class="key">quand / quant / qu'en</td><td>quand = moment · quant à = en ce qui concerne · qu'en = que + en</td></tr></tbody></table></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Passé simple : reconnaissable à ses terminaisons -a, -as, -a, -âmes, -âtes, -èrent</li><li>Ne jamais écrire -ais au passé simple : confusion avec l'imparfait</li><li>Subordonnée relative : qui (sujet), que (COD), dont, où</li></ul></div>`},
+      {title:'La rédaction — structure et registres', content:`<div class="sub-section"><div class="sub-section-title">Structure d'un texte narratif</div><div class="info-block" style="background:rgba(244,114,182,.07);border-color:#F472B6"><ul><li><strong>Situation initiale :</strong> Lieu, temps, personnages → imparfait de description.</li><li><strong>Élément perturbateur :</strong> Événement qui brise l'équilibre → passé simple.</li><li><strong>Péripéties :</strong> Alterner imparfait (durée) et passé simple (action).</li><li><strong>Résolution :</strong> Comment le problème est résolu.</li><li><strong>Situation finale :</strong> Chute : phrase courte + image forte.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Structure d'un texte argumentatif</div><div class="info-block" style="background:rgba(244,114,182,.07);border-color:#F472B6"><ul><li><strong>Introduction :</strong> Accroche → problématique → annonce du plan.</li><li><strong>Thèse (§ 1) :</strong> Affirmation + argument + exemple concret.</li><li><strong>Antithèse (§ 2) :</strong> Point de vue contraire + argument + exemple.</li><li><strong>Conclusion :</strong> Réconcilier + prise de position nuancée.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Connecteurs logiques</div><table class="def-table"><thead><tr><th>Relation</th><th>Connecteurs</th></tr></thead><tbody><tr><td><strong>Addition</strong></td><td>de plus, en outre, par ailleurs, également</td></tr><tr><td><strong>Opposition</strong></td><td>mais, cependant, néanmoins, en revanche, or, pourtant</td></tr><tr><td><strong>Cause</strong></td><td>car, puisque, en effet, étant donné que</td></tr><tr><td><strong>Conséquence</strong></td><td>donc, ainsi, par conséquent, c'est pourquoi</td></tr><tr><td><strong>Illustration</strong></td><td>par exemple, notamment, c'est le cas de</td></tr><tr><td><strong>Concession</strong></td><td>certes, il est vrai que, bien que (+subj.), même si</td></tr><tr><td><strong>Conclusion</strong></td><td>en conclusion, finalement, en somme, bref</td></tr></tbody></table></div><div class="memo-block"><div class="memo-block-title">Critères de correction d'une rédaction</div><div class="memo-item">Respect de la consigne (type de texte, longueur, éléments imposés)</div><div class="memo-item">Cohérence et progression narrative ou argumentative</div><div class="memo-item">Richesse du vocabulaire (éviter les répétitions)</div><div class="memo-item">Correction de la langue : orthographe, grammaire, ponctuation</div><div class="memo-item">Qualité stylistique : au moins 2 figures de style identifiables</div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Écrire la 1ère et la dernière phrase au brouillon → le reste s'organise</li><li>Éviter : « alors », « et puis », « très » → chercher un équivalent plus riche</li><li>Incipit accrocheur = in medias res ou description atmosphérique</li><li>Relire en 3 passes : sens global / grammaire / orthographe</li></ul></div>`},
     ]
   },
   math: {
-    name:'Mathématiques',emoji:'🔢',color:'c-math',
-    sections:[
-      {title:'🔢 Nombres, calculs & puissances', items:[
-        'PRIORITÉS OPÉRATOIRES : Parenthèses en premier → puissances/racines → × et ÷ (de gauche à droite) → + et − (de gauche à droite)',
-        'FRACTIONS – Addition/soustraction : même dénominateur obligatoire ! — 1/3 + 1/4 = 4/12 + 3/12 = 7/12',
-        'FRACTIONS – Multiplication : num × num au dessus, dén × dén en dessous — 2/3 × 4/5 = 8/15',
-        'FRACTIONS – Division : multiplier par l\'inverse — 2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6',
-        'PUISSANCES : a^m × a^n = a^(m+n) ; a^m ÷ a^n = a^(m−n) ; (a^m)^n = a^(m×n) ; a^0 = 1 ; a^(−n) = 1/a^n',
-        'NOTATION SCIENTIFIQUE : a × 10^n avec 1 ≤ a < 10 — ex : 0,00045 = 4,5 × 10^(−4)',
-        'RACINES CARRÉES : √(a×b) = √a × √b ; √(a/b) = √a / √b ; √(a²) = |a| — ne jamais écrire √(a+b) = √a + √b !',
-        'VALEUR ABSOLUE : |a| = a si a≥0 ; |a| = −a si a<0. Distance sur la droite numérique.',
-        'PGCD (Plus Grand Commun Diviseur) : utile pour simplifier les fractions — ex : PGCD(12,8)=4 → 12/8 = 3/2',
-      ]},
-      {title:'📐 Géométrie plane & 3D', items:[
-        'THÉORÈME DE PYTHAGORE : Dans un triangle rectangle en C : AB² = AC² + BC² (hypoténuse² = somme des carrés des deux autres côtés)',
-        'RÉCIPROQUE DE PYTHAGORE : Si AB²=AC²+BC² alors le triangle est rectangle en C',
-        'THÉORÈME DE THALÈS : Si (DE) ∥ (BC), alors AD/AB = AE/AC = DE/BC (rapports égaux)',
-        'RÉCIPROQUE DE THALÈS : Si AD/AB = AE/AC alors (DE) ∥ (BC)',
-        'TRIGONOMÉTRIE (triangle rectangle) : sin(A) = côté OPPosité/Hypoténuse ; cos(A) = côté ADJacent/Hypoténuse ; tan(A) = OPPosité/ADJacent — Mémo : SOH-CAH-TOA',
-        'ANGLES : supplémentaires (somme=180°) ; complémentaires (somme=90°) ; alternes-internes (droites parallèles)',
-        'AIRE des figures : Triangle = base×hauteur/2 ; Rectangle = L×l ; Cercle = πr² ; Trapèze = (b+B)×h/2',
-        'PÉRIMÈTRE : Triangle = somme des 3 côtés ; Cercle = 2πr ; Rectangle = 2(L+l)',
-        'VOLUMES : Cube = a³ ; Pavé = L×l×h ; Cylindre = πr²h ; Cône = πr²h/3 ; Sphère = 4πr³/3',
-        'TRANSFORMATIONS : Translation (vecteur) → figures identiques ; Symétrie axiale (axe) → image miroir ; Symétrie centrale (point) → rotation 180° ; Rotation (centre, angle)',
-      ]},
-      {title:'📈 Algèbre, équations & fonctions', items:[
-        'DÉVELOPPEMENT : a(b+c) = ab+ac ; (a+b)² = a²+2ab+b² ; (a−b)² = a²−2ab+b² ; (a+b)(a−b) = a²−b²',
-        'FACTORISATION : chercher un facteur commun d\'abord, puis utiliser les identités remarquables',
-        'ÉQUATION DU 1ER DEGRÉ : isoler x — ex : 3x−5=7 → 3x=12 → x=4 ; toujours vérifier en substituant',
-        'SYSTÈMES D\'ÉQUATIONS (2 inconnues) : méthode par substitution (isoler une variable, substituer) ou par combinaison (additionner/soustraire les équations)',
-        'INÉGALITÉS : résoudre comme une équation ; attention : si on × ou ÷ par un négatif → le sens de l\'inégalité s\'inverse !',
-        'FONCTION LINÉAIRE : f(x) = ax — droite passant par l\'origine O(0,0) ; pente a',
-        'FONCTION AFFINE : f(x) = ax+b — droite de pente a et d\'ordonnée à l\'origine b',
-        'LIRE UN GRAPHIQUE : f(x) donne l\'image (ordonnée) ; x est l\'antécédent (abscisse)',
-        'TABLEAU DE VALEURS : choisir des valeurs de x, calculer f(x), placer les points, relier',
-        'SENS DE VARIATION : si a>0 → fonction croissante ; si a<0 → fonction décroissante',
-      ]},
-      {title:'📊 Statistiques & probabilités', items:[
-        'MOYENNE (arithmétique) = (somme de toutes les valeurs) ÷ (nombre de valeurs)',
-        'MÉDIANE : valeur qui partage la série ordonnée en 2 parties égales — si nombre pair de valeurs : moyenne des 2 valeurs centrales',
-        'MODE : valeur la plus fréquente dans la série',
-        'ÉTENDUE = valeur maximale − valeur minimale (mesure la dispersion)',
-        'QUARTILES : Q1 = médiane de la première moitié ; Q3 = médiane de la seconde moitié',
-        'BOÎTE À MOUSTACHES : Min | Q1 | Médiane | Q3 | Max — représente la distribution',
-        'PROBABILITÉ : P(A) = nombre de cas favorables ÷ nombre de cas possibles (tous équiprobables)',
-        'P(A) est toujours entre 0 et 1 ; P(événement impossible)=0 ; P(événement certain)=1',
-        'ÉVÉNEMENTS COMPLÉMENTAIRES : P(Ā) = 1 − P(A)',
-        'TABLEAU CROISÉ / ARBRE DE PROBABILITÉS : utile pour les situations à plusieurs étapes',
-        'FRÉQUENCES : fréquence d\'un caractère = effectif ÷ effectif total (× 100 pour le %)',
-      ]},
-    ],
-    memo:[
-      {color:'#A855F730',border:'#A855F7',text:'💡 PYTHAGORE : c² = a² + b² (c = hypoténuse, en face de l\'angle droit). Réciproque : si c²=a²+b² → rectangle en C.'},
-      {color:'#3B82F630',border:'#3B82F6',text:'⭐ IDENTITÉS REMARQUABLES : (a+b)²=a²+2ab+b² ; (a−b)²=a²−2ab+b² ; (a+b)(a−b)=a²−b²'},
-      {color:'#10B98130',border:'#10B981',text:'🎯 SOH-CAH-TOA : Sin=Opposé/Hyp ; Cos=Adjacent/Hyp ; Tan=Opposé/Adjacent'},
-      {color:'#F59E0B30',border:'#F59E0B',text:'📊 Médiane ≠ Moyenne ! La médiane n\'est pas influencée par les valeurs extrêmes (elle est plus "juste" en cas de données aberrantes)'},
+    name:'Mathématiques', emoji:'🔢', color:'linear-gradient(135deg,#4F46E5,#818CF8)',
+    fiches:[
+      {title:'Algèbre — Identités et équations', content:`<div class="sub-section"><div class="sub-section-title">Identités remarquables</div><div class="formula-row"><div class="formula-label">(a + b)²</div><div class="formula-val">= a² + 2ab + b²</div></div><div class="formula-row"><div class="formula-label">(a − b)²</div><div class="formula-val">= a² − 2ab + b²</div></div><div class="formula-row"><div class="formula-label">(a + b)(a − b)</div><div class="formula-val">= a² − b²   ← très utilisée au brevet !</div></div><div class="memo-block"><div class="memo-block-title">Méthode</div><div class="memo-item">Développer = appliquer la formule terme par terme</div><div class="memo-item">Réduire = regrouper les termes de même degré</div><div class="memo-item">VÉRIFIER en redéveloppant mentalement le résultat factorisé</div></div></div><div class="sub-section"><div class="sub-section-title">Factorisation — ordre de priorité</div><div class="info-block" style="background:rgba(129,140,248,.07);border-color:#818CF8"><ul><li><strong>1. Facteur commun :</strong> 3x² − 12x = 3x(x − 4)</li><li><strong>2. Différence de carrés :</strong> a² − b² = (a+b)(a−b). Ex: 4x²−9 = (2x−3)(2x+3)</li><li><strong>3. Carré parfait :</strong> a²+2ab+b² = (a+b)². Ex: x²+6x+9 = (x+3)²</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Équations — méthodes</div><table class="def-table"><thead><tr><th>Type</th><th>Méthode</th><th>Exemple</th></tr></thead><tbody><tr><td><strong>1er degré</strong></td><td>Développer → rassembler x → diviser</td><td>3x−7=2x+5 → x=12</td></tr><tr><td><strong>Produit nul</strong></td><td>A×B=0 → A=0 OU B=0</td><td>(x−4)(2x+1)=0 → x=4 ou x=−½</td></tr><tr><td><strong>Système 2×2</strong></td><td>Substitution ou combinaison linéaire</td><td>{ 2x+y=7 ; x−y=2 } → additionner</td></tr></tbody></table></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>TOUJOURS vérifier la solution en la remplaçant dans l'équation de départ</li><li>Produit nul : ne jamais diviser par un facteur contenant x</li><li>Les points intermédiaires comptent même si la réponse finale est fausse</li></ul></div>`},
+      {title:'Géométrie — Pythagore · Thalès · Trigonométrie', content:`<div class="sub-section"><div class="sub-section-title">Théorèmes fondamentaux</div><table class="def-table"><thead><tr><th>Théorème</th><th>Formule / Condition</th><th>Piège</th></tr></thead><tbody><tr><td><strong>Pythagore</strong></td><td>Triangle rectangle en A : BC² = AB² + AC²</td><td>Identifier l'angle droit avant d'écrire !</td></tr><tr><td><strong>Réciproque</strong></td><td>Si BC²=AB²+AC² → angle droit en A</td><td>C'est bien le plus grand côté² à gauche</td></tr><tr><td><strong>Thalès</strong></td><td>Si (DE)//(BC) : AD/AB = AE/AC = DE/BC</td><td>Nommer les points dans l'ordre !</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Trigonométrie dans le triangle rectangle</div><div class="formula-row"><div class="formula-label">sin(α)</div><div class="formula-val">= côté opposé / hypoténuse</div></div><div class="formula-row"><div class="formula-label">cos(α)</div><div class="formula-val">= côté adjacent / hypoténuse</div></div><div class="formula-row"><div class="formula-label">tan(α)</div><div class="formula-val">= côté opposé / côté adjacent</div></div><div class="memo-block"><div class="memo-block-title">Mémo SOH-CAH-TOA</div><div class="memo-item">Sin = Opposé / Hypoténuse</div><div class="memo-item">Cos = Adjacent / Hypoténuse</div><div class="memo-item">Tan = Opposé / Adjacent</div></div></div><div class="sub-section"><div class="sub-section-title">Aires & Volumes</div><div class="formula-row"><div class="formula-label">Aire triangle</div><div class="formula-val">= ½ × base × hauteur</div></div><div class="formula-row"><div class="formula-label">Aire trapèze</div><div class="formula-val">= ½ × (b₁ + b₂) × h</div></div><div class="formula-row"><div class="formula-label">Aire disque</div><div class="formula-val">= π × r²</div></div><div class="formula-row"><div class="formula-label">Périmètre cercle</div><div class="formula-val">= 2 × π × r</div></div><div class="formula-row"><div class="formula-label">Volume cylindre</div><div class="formula-val">= π × r² × h</div></div><div class="formula-row"><div class="formula-label">Volume cône</div><div class="formula-val">= ⅓ × π × r² × h</div></div><div class="formula-row"><div class="formula-label">Volume sphère</div><div class="formula-val">= 4/3 × π × r³</div></div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Pythagore : nommer les 3 côtés et identifier l'angle droit avant tout</li><li>Thalès : les rapports doivent partir du même sommet</li><li>Volumes : convertir les unités AVANT de calculer</li></ul></div>`},
+      {title:'Probabilités & Statistiques', content:`<div class="sub-section"><div class="sub-section-title">Probabilités</div><div class="formula-row"><div class="formula-label">Probabilité</div><div class="formula-val">P(A) = cas favorables / cas possibles</div></div><div class="info-block" style="background:rgba(129,140,248,.07);border-color:#818CF8"><ul><li><strong>Propriétés :</strong> 0 ≤ P(A) ≤ 1 · P(certain)=1 · P(impossible)=0</li><li><strong>Complémentaire :</strong> P(non A) = 1 − P(A) ← très utile !</li><li><strong>Avec remise :</strong> Tirages indépendants → multiplier les probabilités</li><li><strong>Sans remise :</strong> La probabilité change à chaque tirage → recalculer</li><li><strong>Somme des proba :</strong> Toujours = 1</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Statistiques — indicateurs</div><table class="def-table"><thead><tr><th>Indicateur</th><th>Définition</th><th>Calcul</th></tr></thead><tbody><tr><td><strong>Moyenne</strong></td><td>Valeur centrale calculée</td><td>Somme des valeurs ÷ effectif total</td></tr><tr><td><strong>Médiane</strong></td><td>Coupe la série en deux moitiés</td><td>Trier → valeur centrale (n pair : moyenne des 2 centrales)</td></tr><tr><td><strong>Mode</strong></td><td>Valeur la plus fréquente</td><td>La valeur qui apparaît le plus souvent</td></tr><tr><td><strong>Étendue</strong></td><td>Mesure de la dispersion</td><td>Valeur max − valeur min</td></tr><tr><td><strong>Fréquence</strong></td><td>Part d'un effectif</td><td>Effectif de la classe ÷ effectif total (× 100 pour %)</td></tr></tbody></table></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Vérifier que la somme de toutes les probabilités = 1</li><li>Médiane : TRIER la série dans l'ordre avant de chercher !</li><li>Diagramme circulaire : angle = fréquence × 360°</li></ul></div>`},
     ]
   },
   hist: {
-    name:'Histoire',emoji:'🏛️',color:'c-hist',
-    sections:[
-      {title:'🏭 XIXe siècle – Révolution industrielle', items:[
-        'RÉVOLUTION INDUSTRIELLE (fin XVIIIe – XIXe s.) : passage d\'une société agricole à une société industrielle',
-        'INNOVATIONS CLÉS : machine à vapeur (Watt, 1769), locomotive (Stephenson), métier à tisser mécanique, hauts fourneaux pour l\'acier',
-        'SOURCES D\'ÉNERGIE : charbon (principale) puis pétrole en fin de siècle',
-        'CONDITION OUVRIÈRE : journées de 14-16h, travail des enfants dès 6 ans, salaires misérables, accidents fréquents, logements insalubres (taudis)',
-        'ESSOR DES VILLES (exode rural) : Manchester, Birmingham, Paris → surpeuplement et misère urbaine',
-        'NAISSANCE DU MOUVEMENT OUVRIER : syndicats (Trade Unions en GB), grèves, partis socialistes et marxistes',
-        'KARL MARX (Le Capital, 1867) : analyse lutte des classes bourgeoisie vs prolétariat ; communisme',
-        'LOIS SOCIALES PROGRESSIVES : loi sur le travail des enfants (France 1841), réduction du temps de travail',
-        'IMPÉRIALISME : colonisation de l\'Afrique et de l\'Asie par Europe (GB, France, Allemagne, Belgique) — Conférence de Berlin (1884-85)',
-      ]},
-      {title:'⚔️ Première Guerre Mondiale (1914-1918)', items:[
-        'CAUSES : Nationalisme, Impérialisme, Alliance militaire (Triple Entente vs Triple Alliance), assassinat de François-Ferdinand à Sarajevo (28 juin 1914)',
-        'BELLIGÉRANTS : Triple Entente (France, Royaume-Uni, Russie, + USA en 1917) vs Triple Alliance / Axe (Allemagne, Autriche-Hongrie, Turquie)',
-        'GUERRE DE TRANCHÉES : front figé, conditions de vie terribles, gaz de combat, "no man\'s land"',
-        'BATAILLES CLÉS : Verdun (1916 – 300 000 morts) ; Somme (1916) — guerres d\'usure',
-        'GÉNOCIDE ARMÉNIEN (1915) : 1ère génocide du XXe siècle, perpétré par l\'Empire Ottoman',
-        'FIN DE LA GUERRE : Armistice 11 novembre 1918 à 11h — victoire de l\'Entente',
-        'TRAITÉ DE VERSAILLES (1919) : Allemagne vaincue, perd territoires, paie réparations, armée limitée → humiliation qui engendre le nazisme',
-        'BILAN : 18-20 millions de morts, sociétés européennes bouleversées, empires effondrés (russe, austro-hongrois, ottoman)',
-      ]},
-      {title:'☠️ Seconde Guerre Mondiale (1939-1945)', items:[
-        'MONTÉE DES TOTALITARISMES : nazisme (Hitler, 1933 en Allemagne), fascisme (Mussolini, Italie), stalinisme (URSS)',
-        'CAUSES : crise économique de 1929, humiliation de Versailles, montée du nationalisme, politique d\'apaisement',
-        'DÉCLENCHEMENT : invasion de la Pologne par Hitler le 1er septembre 1939 → GB et France déclarent la guerre',
-        'BLITZKRIEG : guerre-éclair allemande → chute de la France juin 1940 → Armistice Pétain, régime de Vichy (collaboration)',
-        'RÉSISTANCE FRANÇAISE : France Libre de De Gaulle à Londres (Appel du 18 juin 1940), maquis, Jean Moulin unifie la Résistance intérieure (CNR 1943)',
-        'SHOAH : plan de la "Solution finale" (Wannsee, janv. 1942), déportation, camps d\'extermination (Auschwitz, Treblinka…), 6 millions de Juifs assassinés + Roms, handicapés, opposants politiques',
-        'RAFLE DU VÉL D\'HIV (juillet 1942) : 13 000 Juifs arrêtés à Paris par la police française',
-        'TOURNANT DE LA GUERRE : bataille de Stalingrad (1942-43), débarquement en Normandie 6 juin 1944 (D-Day), libération de Paris août 1944',
-        'FIN DE LA GUERRE : capitulation allemande 8 mai 1945 ; bombardements atomiques Hiroshima/Nagasaki (6-9 août) → capitulation japonaise 2 sept. 1945',
-        'BILAN : 50-70 millions de morts ; procès de Nuremberg (1945-46) → crimes contre l\'humanité ; création ONU (1945)',
-      ]},
-      {title:'🌍 Guerre froide & Décolonisation (1945-1991)', items:[
-        'GUERRE FROIDE : affrontement indirect USA (démocratie libérale, capitalisme) vs URSS (régime communiste) de 1947 à 1991',
-        'BLOC OCCIDENTAL (OTAN) vs BLOC SOVIÉTIQUE (Pacte de Varsovie) — rideau de fer en Europe',
-        'CRISES : Blocus de Berlin (1948-49) ; Guerre de Corée (1950-53) ; Crise de Cuba (1962 – au bord du conflit nucléaire) ; Guerre du Vietnam (1955-1975)',
-        'COURSE AUX ARMEMENTS : bombes nucléaires, course à l\'espace (Spoutnik 1957, Lune 1969)',
-        'DÉCOLONISATION : Inde (1947, Gandhi) ; Algérie (1954-1962, guerre d\'indépendance) ; Afrique sub-saharienne (années 1960)',
-        'CRÉATION DES ÉTATS INDÉPENDANTS : souvent instables, guerres civiles, ingérence des grandes puissances',
-        'FIN DE LA GUERRE FROIDE : Gorbatchev (glasnost, perestroïka) ; chute du mur de Berlin 9 nov. 1989 ; dissolution de l\'URSS déc. 1991',
-      ]},
-      {title:'🇫🇷 La France de 1958 à nos jours', items:[
-        'IVe RÉPUBLIQUE (1946-1958) : instabilité politique, guerre d\'Algérie → crise → appel à De Gaulle',
-        'Ve RÉPUBLIQUE : Constitution du 4 octobre 1958, rédigée par De Gaulle → renforcement du pouvoir exécutif',
-        'ÉLECTION DU PRÉSIDENT au suffrage universel direct depuis 1962 (réforme De Gaulle)',
-        'MAI 68 : révolte étudiante (contre la société de consommation, pour la liberté) + grève générale → réformes sociales, libération des mœurs',
-        'CONSTRUCTION EUROPÉENNE : Traité de Rome (1957) → CEE → UE ; Maastricht (1992) ; euro (2002) ; 27 États membres',
-        'PRÉSIDENTS depuis 1958 : De Gaulle, Pompidou, Giscard, Mitterrand, Chirac, Sarkozy, Hollande, Macron',
-        'INSTITUTIONS : Président (exécutif) + Premier ministre + gouvernement + Parlement (AN + Sénat) + Conseil constitutionnel',
-      ]},
-    ],
-    memo:[
-      {color:'#F59E0B30',border:'#F59E0B',text:'📅 DATES INCONTOURNABLES : 1914 (1ère GM) | 1918 (Armistice) | 1933 (Hitler) | 1939 (2ème GM) | 1940 (De Gaulle) | 1942 (Shoah/Solution finale) | 1944 (D-Day) | 1945 (fin GM) | 1958 (Ve Rép.) | 1962 (Algérie) | 1989 (chute du Mur)'},
-      {color:'#EF444430',border:'#EF4444',text:'⚠️ NE PAS CONFONDRE : Vichy (collaboration, Pétain) ≠ France Libre (résistance, De Gaulle à Londres). Shoah = génocide des Juifs ; génocide arménien (1915) = 1er génocide du XXe s.'},
-      {color:'#10B98130',border:'#10B981',text:'💡 GUERRE FROIDE ≠ guerre directe ! Affrontement indirect par pays interposés (Corée, Vietnam), propagande, course aux armements, espionnage.'},
+    name:'Histoire-Géographie', emoji:'🏛️', color:'linear-gradient(135deg,#B45309,#FBBF24)',
+    fiches:[
+      {title:'Les deux Guerres mondiales — XXe siècle', content:`<div class="sub-section"><div class="sub-section-title">Première Guerre mondiale (1914-1918)</div><div class="info-block" style="background:rgba(251,191,36,.07);border-color:#FBBF24"><ul><li><strong>Causes :</strong> Nationalisme, alliances rigides (Triple Entente vs Triple Alliance), assassinat de François-Ferdinand (28 juin 1914, Sarajevo).</li><li><strong>Alliances :</strong> Triple Entente (France, Royaume-Uni, Russie) vs Triple Alliance (Allemagne, Autriche-Hongrie, Italie).</li><li><strong>Phases :</strong> Guerre de mouvement (1914) → Guerre de tranchées (1915-1917) → Offensive alliée (1918).</li><li><strong>Génocide arménien (1915) :</strong> 1er génocide du XXe s. ~1 à 1,5 million de victimes. Empire ottoman.</li><li><strong>Fin :</strong> Armistice 11 novembre 1918. Traité de Versailles (1919).</li><li><strong>Bilan :</strong> ~18 millions de morts.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Seconde Guerre mondiale (1939-1945)</div><div class="info-block" style="background:rgba(251,191,36,.07);border-color:#FBBF24"><ul><li><strong>Contexte :</strong> Montée du nazisme (Hitler, 1933), crise économique, échec de la SDN.</li><li><strong>1939 :</strong> Invasion de la Pologne → France et RU déclarent la guerre.</li><li><strong>1940 :</strong> Blitzkrieg → chute de la France. Armistice de Pétain. Appel du 18 juin (De Gaulle, Londres).</li><li><strong>Résistance :</strong> France Libre (De Gaulle), maquis, Jean Moulin, CNR (1943).</li><li><strong>1944-1945 :</strong> Débarquement en Normandie (6 juin 1944), Libération de Paris (août 1944), capitulation allemande (8 mai 1945), bombes atomiques Hiroshima et Nagasaki.</li><li><strong>Bilan :</strong> ~60 millions de morts, majorité de civils.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">La Shoah</div><div class="info-block" style="background:rgba(251,191,36,.07);border-color:#FBBF24"><ul><li><strong>Définition :</strong> Génocide systématique des Juifs d'Europe par le régime nazi. ~6 millions de victimes.</li><li><strong>Mise en place :</strong> Lois de Nuremberg (1935) → Nuit de Cristal (1938) → Conférence de Wannsee (jan. 1942) : « solution finale ».</li><li><strong>Méthodes :</strong> Ghettos, Einsatzgruppen, camps de concentration et d'extermination (Auschwitz-Birkenau, Treblinka…).</li><li><strong>Mémoire :</strong> Procès de Nuremberg (1945-46) → crime contre l'humanité.</li></ul></div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>8 dates clés : 1914, 11/11/1918, 1919, 1939, 18/06/1940, 20/01/1942, 6/06/1944, 8/05/1945</li><li>Génocide ≠ massacre : génocide = intention délibérée d'exterminer un groupe entier</li></ul></div>`},
+      {title:'Guerre froide & Construction européenne', content:`<div class="sub-section"><div class="sub-section-title">La Guerre froide (1947-1991)</div><div class="info-block" style="background:rgba(251,191,36,.07);border-color:#FBBF24"><ul><li><strong>Définition :</strong> Affrontement indirect entre USA (capitalisme) et URSS (communisme). Pas de guerre directe.</li><li><strong>Deux blocs :</strong> Bloc occidental (OTAN, Plan Marshall) vs Bloc soviétique (Pacte de Varsovie).</li><li><strong>Berlin :</strong> Blocus (1948), Mur de Berlin (1961) → symbole du Rideau de fer.</li><li><strong>Crises majeures :</strong> Corée (1950-53), Cuba (1962, risque nucléaire max), Vietnam (1955-75).</li><li><strong>Fin :</strong> Gorbatchev → Chute du Mur (9/11/1989) → Dissolution de l'URSS (25/12/1991).</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Construction européenne</div><table class="def-table"><thead><tr><th>Date</th><th>Étape</th></tr></thead><tbody><tr><td class="key">1951</td><td>CECA — 6 pays fondateurs</td></tr><tr><td class="key">1957</td><td>Traité de Rome → CEE. Marché commun.</td></tr><tr><td class="key">1985</td><td>Accords de Schengen → libre circulation</td></tr><tr><td class="key">1993</td><td>Traité de Maastricht → Union Européenne</td></tr><tr><td class="key">1999-2002</td><td>Euro : monnaie unique (20 pays actuellement)</td></tr></tbody></table></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Guerre froide : toujours expliquer pourquoi « froide » (pas de conflit direct)</li><li>Mur de Berlin : construit en 1961, tombé en 1989</li><li>L'UE compte 27 membres depuis le Brexit (2020)</li></ul></div>`},
+      {title:'Géographie & EMC — Mondialisation & Institutions', content:`<div class="sub-section"><div class="sub-section-title">La mondialisation</div><table class="def-table"><thead><tr><th>Concept</th><th>Définition + exemples</th></tr></thead><tbody><tr><td><strong>Mondialisation</strong></td><td>Intensification des échanges (biens, services, capitaux, personnes) à l'échelle planétaire.</td></tr><tr><td><strong>FTN</strong></td><td>Firme TransNationale présente dans plusieurs pays. Ex : Apple, Toyota, Total.</td></tr><tr><td><strong>Métropole mondiale</strong></td><td>Ville concentrant les fonctions de commandement. Ex : New York, Londres, Tokyo, Paris.</td></tr><tr><td><strong>Littoralisation</strong></td><td>Concentration des activités sur les littoraux pour faciliter le transport maritime.</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Développement durable — 3 piliers</div><div class="info-block" style="background:rgba(251,191,36,.07);border-color:#FBBF24"><ul><li><strong>Définition :</strong> « Répondre aux besoins du présent sans compromettre les générations futures. » (Brundtland, 1987)</li><li><strong>Pilier économique :</strong> Croissance, efficacité, richesses.</li><li><strong>Pilier social :</strong> Équité, inégalités, éducation et santé pour tous.</li><li><strong>Pilier environnemental :</strong> Préservation des ressources, biodiversité, climat.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">EMC — Institutions Ve République</div><table class="def-table"><thead><tr><th>Institution</th><th>Composition</th><th>Rôle</th></tr></thead><tbody><tr><td><strong>Président</strong></td><td>Élu au SUD, 5 ans, max 2 mandats</td><td>Chef de l'État, nomme le PM</td></tr><tr><td><strong>Premier ministre</strong></td><td>Nommé par le Président</td><td>Dirige le gouvernement</td></tr><tr><td><strong>Assemblée nationale</strong></td><td>577 députés, 5 ans</td><td>Vote les lois</td></tr><tr><td><strong>Sénat</strong></td><td>348 sénateurs, 6 ans</td><td>Chambre haute, représente les territoires</td></tr></tbody></table><div class="memo-block"><div class="memo-block-title">Textes fondamentaux</div><div class="memo-item"><strong>DDHC (1789) :</strong> Liberté, Égalité, Souveraineté nationale.</div><div class="memo-item"><strong>Loi de 1905 :</strong> Séparation de l'Église et de l'État = Laïcité.</div><div class="memo-item"><strong>DUDH (1948) :</strong> 30 articles. ONU. Droits universels.</div><div class="memo-item"><strong>CIDE (1989) :</strong> Droits de l'Enfant. Éducation, protection, santé.</div></div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Croquis géo : titre précis + légende + orientation = points assurés</li><li>Laïcité ≠ anti-religion : séparation de l'État et des religions</li></ul></div>`},
     ]
   },
   geo: {
-    name:'Géographie',emoji:'🌍',color:'c-geo',
-    sections:[
-      {title:'🌐 La mondialisation', items:[
-        'MONDIALISATION = processus d\'intensification des échanges à l\'échelle planétaire : biens, services, capitaux, personnes, idées, culture',
-        'ACTEURS : États, FTN, organisations internationales (FMI, OMC, Banque mondiale), ONG',
-        'FTN (Firmes Transnationales) : entreprises avec maison-mère dans un pays et filiales dans d\'autres — Apple, Samsung, Total, Nestlé, Amazon',
-        'FTN : stratégie de délocalisation (production là où coût de main-d\'œuvre est faible) + externalisation',
-        'LA TRIADE : 3 grands pôles qui concentrent 80% des échanges — Amérique du Nord (USA, Canada, Mexique) + Europe occidentale + Asie orientale (Japon, Chine, Corée)',
-        'PAYS ÉMERGENTS – BRICS : Brésil, Russie, Inde, Chine, Afrique du Sud — croissance rapide mais inégalités internes fortes',
-        'PAYS DU SUD en développement : PMA (Pays les Moins Avancés) — Afrique sub-saharienne, Asie du Sud-Est',
-        'FLUX MONDIAUX : flux maritimes (90% des marchandises), aériens (passagers, produits à haute valeur), numériques (données)',
-        'HUBS ET NOEUDS : grandes plateformes de connexion — ports (Shanghai, Rotterdam, Singapour), aéroports (Dubaï, Paris-CDG)',
-        'IDH (Indice de Développement Humain) : entre 0 et 1 ; combine PIB/hab + espérance de vie + niveau d\'éducation',
-      ]},
-      {title:'🏙️ Urbanisation, mégapoles & métropolisation', items:[
-        'URBANISATION : plus de 55% de la population mondiale vit en ville (2023) — tendance à la hausse',
-        'MÉGAPOLE : agglomération de plus de 10 millions d\'habitants — Tokyo (37M), Delhi (30M), Shanghai (26M), Mumbai, São Paulo, Mexico, NYC, Dhaka…',
-        'MÉTROPOLE MONDIALE (ville globale) : centre de commandement économique, financier, politique, culturel — New York, Londres, Tokyo, Paris',
-        'MÉTROPOLISATION : concentration des richesses, des emplois, des décisions dans les grandes villes',
-        'SÉGRÉGATION URBAINE : quartiers riches (CBD, beaux quartiers) vs quartiers pauvres (banlieues, périphérie)',
-        'BIDONVILLES : favelas (Brésil), slums (Inde), barrios (Amérique latine) — habitat précaire sans eau ni électricité',
-        'FRANCE : Paris = seule métropole mondiale française ; Lyon, Marseille, Bordeaux = métropoles régionales',
-        'ÉTALEMENT URBAIN : extension des villes sur les campagnes → périurbanisation, dépendance à la voiture',
-      ]},
-      {title:'🌱 Développement durable & enjeux environnementaux', items:[
-        'DÉVELOPPEMENT DURABLE (Brundtland, 1987) : "répondre aux besoins du présent sans compromettre les besoins des générations futures"',
-        'TROIS PILIERS : économique (croissance) + social (équité) + environnemental (préservation)',
-        'CHANGEMENT CLIMATIQUE : hausse moyenne de +1,1°C depuis ère préindustrielle due aux GES (CO2, méthane) ; objectif : limiter à +1,5°C (Accord de Paris 2015)',
-        'CONSÉQUENCES : fonte des glaces, montée des eaux, événements extrêmes, migrations climatiques',
-        'RESSOURCES EN EAU : 97% d\'eau salée ; seulement 3% douce — tensions autour de l\'eau potable au Moyen-Orient, Afrique',
-        'BIODIVERSITÉ MENACÉE : 6ème extinction de masse en cours ; déforestation (Amazonie), surpêche, pesticides',
-        'ÉNERGIES FOSSILES vs RENOUVELABLES : pétrole/charbon/gaz (polluants, limités) vs solaire/éolien/hydraulique/géothermie',
-        'TRANSITION ÉNERGÉTIQUE : passage progressif vers les énergies renouvelables et la sobriété',
-        'COP (Conférence des Parties) : COP21 Paris 2015 → Accord de Paris (195 pays) ; COP28 Dubaï 2023',
-        'ODD (Objectifs de Développement Durable) : 17 objectifs fixés par l\'ONU pour 2030',
-      ]},
-      {title:'🇫🇷 Territoire français & aménagement', items:[
-        'FRANCE MÉTROPOLITAINE + 5 DROM : Guyane (Amérique du Sud), Martinique, Guadeloupe (Caraïbes), La Réunion (Océan Indien), Mayotte (Océan Indien)',
-        'ZEE (Zone Économique Exclusive) : la France possède la 2ème ZEE mondiale grâce à ses territoires ultramarins (eaux jusqu\'à 200 miles nautiques)',
-        'INÉGALITÉS TERRITORIALES : Paris concentre 30% du PIB national — désert médical en milieu rural, fracture numérique',
-        'AMÉNAGEMENT DU TERRITOIRE : TGV (désenclavement), autoroutes, Internet très haut débit, ZAD',
-        'POLITIQUE DE COHÉSION : politique régionale de l\'UE pour réduire les inégalités entre régions',
-        'ESPACES RURAUX : en mutation — agriculture intensive, tourisme vert, résidents périurbains (villages dortoirs)',
-        'LITTORAL FRANÇAIS : attractif (tourisme, ports) mais sous pression (artificialisation, montée des eaux)',
-        'MONTAGNE : espace multifonctionnel — tourisme hivernal ET estival, agriculture (alpages), hydroélectricité, mais déprise agricole',
-        'FRANCE DANS LE MONDE : puissance diplomatique (siège permanent au Conseil de sécurité ONU), puissance militaire (force de frappe nucléaire), puissance culturelle (soft power, francophonie)',
-      ]},
-    ],
-    memo:[
-      {color:'#10B98130',border:'#10B981',text:'🌍 TRIADE = Amérique du Nord + Europe + Asie orientale = 80% des échanges mondiaux. Les BRICS = pays émergents qui contestent cet ordre.'},
-      {color:'#3B82F630',border:'#3B82F6',text:'💡 IDH : 0 = développement nul → 1 = développement maximal. IDH > 0,8 = très élevé (pays riches). IDH < 0,5 = faible (PMA).'},
-      {color:'#F59E0B30',border:'#F59E0B',text:'🗺️ DROM ≠ DOM-TOM ! Les DROM font partie intégrante de la France ET de l\'UE. ZEE = France = 2ème territoire maritime mondial.'},
+    name:'Géographie', emoji:'🌍', color:'linear-gradient(135deg,#065F46,#34D399)',
+    fiches:[
+      {title:'Mondialisation, inégalités & territoire français', content:`<div class="sub-section"><div class="sub-section-title">Acteurs de la mondialisation</div><div class="info-block" style="background:rgba(52,211,153,.07);border-color:#34D399"><ul><li><strong>États :</strong> Régulent les échanges, négocient les traités commerciaux.</li><li><strong>FTN :</strong> Organisent la production mondiale, délocalisent.</li><li><strong>ONG :</strong> Défendent les droits humains et l'environnement.</li><li><strong>Institutions internationales :</strong> FMI, Banque mondiale, OMC.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Inégalités mondiales</div><table class="def-table"><thead><tr><th>Catégorie</th><th>Caractéristiques</th><th>Exemples</th></tr></thead><tbody><tr><td><strong>Pays développés</strong></td><td>IDH > 0,8, économie de services</td><td>France, USA, Japon</td></tr><tr><td><strong>Pays émergents</strong></td><td>Croissance rapide, inégalités internes</td><td>Chine, Inde, Brésil (BRICS)</td></tr><tr><td><strong>PMA</strong></td><td>IDH très bas, économie peu diversifiée</td><td>Niger, Haïti, Bangladesh</td></tr></tbody></table><div class="memo-block"><div class="memo-block-title">L'IDH</div><div class="memo-item">Combine : PIB/hab + espérance de vie + niveau d'éducation</div><div class="memo-item">Entre 0 et 1. IDH > 0,8 = très élevé. IDH < 0,5 = faible.</div></div></div><div class="sub-section"><div class="sub-section-title">France dans la mondialisation</div><div class="info-block" style="background:rgba(52,211,153,.07);border-color:#34D399"><ul><li><strong>Territoire :</strong> Métropole + 5 DROM (Guyane, Martinique, Guadeloupe, La Réunion, Mayotte) = 2ème ZEE mondiale.</li><li><strong>Puissance :</strong> Membre permanent Conseil de sécurité ONU, puissance nucléaire.</li><li><strong>Paris :</strong> Seule métropole mondiale française. 30% du PIB national.</li></ul></div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Toujours illustrer avec un exemple concret nommé</li><li>Triade = Amérique du Nord + Europe + Asie orientale = 80% des échanges</li><li>IDH : 3 composantes = revenu + santé + éducation</li></ul></div>`},
     ]
   },
   sci: {
-    name:'Sciences (SVT/Physique)',emoji:'🔬',color:'c-sci',
-    sections:[
-      {title:'🧬 SVT – Cellule, ADN & génétique', items:[
-        'CELLULE : unité structurale et fonctionnelle du vivant. Toute cellule vient d\'une cellule préexistante.',
-        'COMPOSITION D\'UNE CELLULE ANIMALE : membrane plasmique (délimite), cytoplasme (liquide interne), noyau (contient l\'ADN), mitochondries (produisent de l\'énergie), ribosomes (synthèse protéines)',
-        'ADN (Acide DésoxyriboNucléique) : molécule en double hélice dans le noyau, support de l\'information génétique',
-        'CHROMOSOMES : structures formées d\'ADN enroulé sur des protéines (histones). Humain : 46 chromosomes = 23 paires',
-        'GÈNE : séquence d\'ADN codant pour une protéine (ou un caractère). Chaque gène a une position fixe sur un chromosome (locus)',
-        'ALLÈLES : différentes versions d\'un même gène — allèle dominant (s\'exprime toujours) vs allèle récessif (s\'exprime seulement si deux copies)',
-        'GÉNOTYPE : composition en allèles d\'un individu (non visible). Ex : (Mb) — un allèle marron, un allèle bleu',
-        'PHÉNOTYPE : caractère observable résultant du génotype ET de l\'environnement. Ex : yeux marrons',
-        'DOMINANT/RÉCESSIF : Mm = phénotype dominant ; mm = phénotype récessif (2 allèles récessifs nécessaires)',
-        'TABLEAU DE CROISEMENT (échiquier de Punnett) : permet de calculer les proportions de génotypes et phénotypes dans la descendance',
-        'MUTATION : modification accidentelle de la séquence d\'ADN — peut être neutre, bénéfique ou délétère ; transmissible à la descendance si elle touche les gamètes',
-      ]},
-      {title:'🌿 SVT – Évolution, écosystèmes & immunité', items:[
-        'THÉORIE DE L\'ÉVOLUTION (Darwin, 1859) : les espèces évoluent par sélection naturelle — les individus les mieux adaptés survivent et se reproduisent davantage',
-        'SÉLECTION NATURELLE : pression de l\'environnement → certains phénotypes sont avantagés → transmission préférentielle des allèles correspondants',
-        'MUTATIONS et BRASSAGE GÉNÉTIQUE : sources de la diversité génétique au sein d\'une espèce',
-        'ÉCOSYSTÈME : ensemble des êtres vivants (biocénose) + leur milieu de vie (biotope), en interaction',
-        'CHAÎNE ALIMENTAIRE : Producteurs (végétaux) → Consommateurs primaires → Consommateurs secondaires → Décomposeurs',
-        'RÉSEAU TROPHIQUE : ensemble des chaînes alimentaires d\'un écosystème',
-        'SYSTÈME IMMUNITAIRE : protège contre les agents pathogènes (bactéries, virus, parasites)',
-        'RÉPONSE INNÉE (non spécifique, immédiate) : phagocytes (macrophages, neutrophiles) ingèrent et détruisent les pathogènes',
-        'RÉPONSE ADAPTATIVE (spécifique, plus lente) : lymphocytes B (produisent anticorps) + lymphocytes T (détruisent cellules infectées)',
-        'MÉMOIRE IMMUNITAIRE : après une première infection, lymphocytes mémoires → réponse plus rapide et plus forte si réinfection',
-        'VACCINATION : introduire un antigène affaibli/inactivé pour créer une mémoire immunitaire sans maladie',
-        'IMMUNITÉ COLLECTIVE : si une large proportion de la population est immunisée, le pathogène ne circule plus',
-      ]},
-      {title:'⚡ Physique – Électricité & circuits', items:[
-        'GRANDEURS ÉLECTRIQUES : Tension U (en Volts, V) = différence de potentiel ; Intensité I (en Ampères, A) = débit de charges ; Résistance R (en Ohms, Ω)',
-        'LOI D\'OHM : U = R × I (tension = résistance × intensité) — valable pour une résistance',
-        'PUISSANCE ÉLECTRIQUE : P = U × I (en Watts, W). Exemple : ampoule 60W sous 230V → I = 60/230 ≈ 0,26A',
-        'ÉNERGIE ÉLECTRIQUE : E = P × t (en Joules si t en secondes, ou en Wh si t en heures)',
-        'CIRCUIT EN SÉRIE : les composants sont dans la même branche → même intensité partout ; les tensions s\'additionnent (U_tot = U1 + U2)',
-        'CIRCUIT EN DÉRIVATION (parallèle) : plusieurs branches → même tension pour chaque branche ; les intensités s\'additionnent (I_tot = I1 + I2)',
-        'GÉNÉRATEUR (pile, batterie) : fournit de l\'énergie électrique ; a un pôle + et un pôle −',
-        'DIPÔLES : résistance (consomme), condensateur (stocke), bobine (génère un champ magnétique)',
-        'COURT-CIRCUIT : connexion directe entre + et − du générateur sans résistance → courant très fort, danger !',
-        'SEMI-CONDUCTEURS : matériaux comme le silicium utilisés dans les puces électroniques (transistors)',
-      ]},
-      {title:'🚀 Physique – Mouvement, forces & énergie', items:[
-        'VITESSE MOYENNE : v = d/t — distance en m, temps en s → vitesse en m/s. Conversion : × 3,6 pour km/h → m/s ; ÷ 3,6 pour m/s → km/h',
-        'MOUVEMENT UNIFORME : vitesse constante — trajectoire rectiligne uniforme',
-        'MOUVEMENT ACCÉLÉRÉ : vitesse augmente ; MOUVEMENT DÉCÉLÉRÉ : vitesse diminue',
-        'FORCE : grandeur vectorielle (intensité + direction + sens + point d\'application). Unité : Newton (N)',
-        'POIDS : P = m × g (masse en kg, g ≈ 10 N/kg sur Terre → P en N). ATTENTION : masse ≠ poids !',
-        '2ème LOI DE NEWTON (principe fondamental) : ΣF = m × a — si forces équilibrées (ΣF=0) → mouvement rectiligne uniforme ou repos',
-        '3ème LOI DE NEWTON (actions réciproques) : si A exerce une force sur B, alors B exerce une force égale et opposée sur A',
-        'PRESSION : p = F/S (force en N, surface en m²) → pression en Pa (Pascals). Pression atmosphérique ≈ 10^5 Pa',
-        'FORMES D\'ÉNERGIE : cinétique (Ec = ½mv²), potentielle (Ep = mgh), électrique, chimique, thermique, lumineuse, nucléaire',
-        'CONSERVATION DE L\'ÉNERGIE : l\'énergie ne se crée ni ne se détruit, elle se transforme',
-        'RENDEMENT : η = énergie utile / énergie totale fournie (en %). Toujours < 100% (pertes par chaleur)',
-      ]},
-      {title:'🌡️ Corps humain – Systèmes & nutrition', items:[
-        'SYSTÈME RESPIRATOIRE : voies respiratoires (nez → trachée → bronches) → poumons → alvéoles pulmonaires → échanges gazeux O2 contre CO2 (vers le sang)',
-        'SYSTÈME CIRCULATOIRE : cœur (pompe) → artères (du cœur vers organes) → capillaires (échanges) → veines (retour vers cœur). Grande circulation + petite circulation (pulmonaire)',
-        'FRÉQUENCE CARDIAQUE au repos : 60-80 bpm ; à l\'effort : jusqu\'à 200 bpm',
-        'SYSTÈME DIGESTIF : bouche (mâche + salive) → œsophage → estomac (acide) → intestin grêle (absorption nutriments) → gros intestin → rectum',
-        'NUTRIMENTS ABSORBÉS : glucides (sucres → énergie rapide), lipides (graisses → réserve d\'énergie), protéines (acides aminés → construction des tissus), vitamines, minéraux, eau',
-        'SYSTÈME NERVEUX : cerveau (analyse + commande) → moelle épinière → nerfs → effecteurs (muscles, glandes)',
-        'RÉFLEXE : réponse involontaire rapide (arc réflexe) sans passer par le cerveau',
-        'HORMONES : messages chimiques transportés par le sang — insuline (glycémie), adrénaline (stress), hormones sexuelles',
-        'RISQUES SANITAIRES : tabac (cancers, maladies cardiaques) ; alcool (foie, cerveau) ; alimentation déséquilibrée → obésité, diabète',
-      ]},
-    ],
-    memo:[
-      {color:'#3B82F630',border:'#3B82F6',text:'⚡ LOI D\'OHM : U = R × I. Retenir les triangles : U en haut, R et I en bas → R = U/I ; I = U/R'},
-      {color:'#10B98130',border:'#10B981',text:'🧬 GÉNOTYPE (non visible, ADN) → PHÉNOTYPE (visible). Dominant s\'exprime toujours ; récessif s\'exprime uniquement si homozygote (mm)'},
-      {color:'#A855F730',border:'#A855F7',text:'🚀 v = d/t. Unités : si d en km et t en h → km/h. Si d en m et t en s → m/s. Conversion : ÷3,6 (km/h → m/s)'},
-      {color:'#F59E0B30',border:'#F59E0B',text:'💡 ÉNERGIE : toujours conservée, jamais créée. E = P × t. Rendement = énergie utile ÷ énergie totale (toujours < 1)'},
+    name:'Sciences (SVT + PC)', emoji:'🔬', color:'linear-gradient(135deg,#0369A1,#38BDF8)',
+    fiches:[
+      {title:'Génétique & Hérédité', content:`<div class="sub-section"><div class="sub-section-title">Structure de l'information génétique</div><table class="def-table"><thead><tr><th>Niveau</th><th>Définition</th><th>Localisation</th></tr></thead><tbody><tr><td><strong>Nucléotide</strong></td><td>Unité de base de l'ADN (A, T, G, C)</td><td>ADN</td></tr><tr><td><strong>Gène</strong></td><td>Séquence d'ADN codant une protéine → détermine un caractère</td><td>Sur les chromosomes</td></tr><tr><td><strong>Allèle</strong></td><td>Version différente d'un même gène</td><td>Même locus sur chromosomes homologues</td></tr><tr><td><strong>Génome humain</strong></td><td>46 chromosomes = 23 paires. XX (femme) ou XY (homme).</td><td>Noyau</td></tr></tbody></table><div class="memo-block"><div class="memo-block-title">Chaîne de l'information génétique</div><div class="memo-item">ADN (noyau) → ARNm → Protéine → Phénotype</div></div></div><div class="sub-section"><div class="sub-section-title">Mitose vs Méiose</div><table class="def-table"><thead><tr><th></th><th>Mitose</th><th>Méiose</th></tr></thead><tbody><tr><td><strong>Où ?</strong></td><td>Cellules somatiques</td><td>Gonades (testicules, ovaires)</td></tr><tr><td><strong>Résultat</strong></td><td>2 cellules filles identiques (2n=46)</td><td>4 gamètes différents (n=23)</td></tr><tr><td><strong>Rôle</strong></td><td>Croissance, réparation</td><td>Reproduction sexuée</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Hérédité — vocabulaire</div><div class="info-block" style="background:rgba(56,189,248,.07);border-color:#38BDF8"><ul><li><strong>Dominant :</strong> Allèle qui s'exprime même à l'état hétérozygote (noté A).</li><li><strong>Récessif :</strong> Allèle qui ne s'exprime qu'à l'état homozygote (noté a).</li><li><strong>Génotype :</strong> Constitution génétique (ex : Aa, BB).</li><li><strong>Phénotype :</strong> Caractère observable = génotype + environnement.</li></ul></div><div class="memo-block"><div class="memo-block-title">Échiquier de croisement</div><div class="memo-item">1. Identifier les génotypes des parents</div><div class="memo-item">2. Lister les gamètes possibles</div><div class="memo-item">3. Remplir le tableau → génotypes F1</div><div class="memo-item">4. Lire les proportions phénotypiques</div></div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Cellule somatique : 46 chr. / Gamète : 23 chr.</li><li>Fécondation : 23 + 23 = 46</li><li>Mutation = modification de la séquence ADN</li></ul></div>`},
+      {title:'Corps humain — Système nerveux & Digestion', content:`<div class="sub-section"><div class="sub-section-title">Le système nerveux</div><table class="def-table"><thead><tr><th>Structure</th><th>Rôle</th></tr></thead><tbody><tr><td><strong>Neurone</strong></td><td>Cellule nerveuse : corps cellulaire + axone + dendrites</td></tr><tr><td><strong>Synapse</strong></td><td>Zone de connexion. Transmission chimique (neurotransmetteurs).</td></tr><tr><td><strong>Cerveau</strong></td><td>Perception, mémoire, décisions volontaires</td></tr><tr><td><strong>Moelle épinière</strong></td><td>Relie le cerveau au reste du corps. Centre des réflexes.</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Réflexe médullaire vs acte volontaire</div><div class="info-block" style="background:rgba(56,189,248,.07);border-color:#38BDF8"><ul><li><strong>Réflexe :</strong> Traité dans la moelle épinière. Involontaire. Rapide. Arc réflexe : Récepteur → neurone sensitif → moelle épinière → neurone moteur → effecteur.</li><li><strong>Acte volontaire :</strong> Traité par le cortex cérébral. Intentionnel. Plus lent.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">La digestion — étapes</div><div class="info-block" style="background:rgba(56,189,248,.07);border-color:#38BDF8"><ul><li><strong>Bouche :</strong> Mastication + amylase salivaire (dégrade l'amidon).</li><li><strong>Estomac :</strong> Broyage mécanique + acidité (HCl) + pepsine (protéines).</li><li><strong>Intestin grêle :</strong> Digestion (enzymes pancréatiques + bile) et absorption (villosités → capillaires).</li><li><strong>Gros intestin :</strong> Absorption de l'eau, formation des selles.</li></ul></div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Arc réflexe : 5 éléments = récepteur, neurone sensitif, moelle épinière, neurone moteur, effecteur</li><li>L'absorption se fait dans l'intestin grêle grâce aux villosités</li><li>Digestion (transformation chimique) ≠ absorption (passage dans le sang)</li></ul></div>`},
+      {title:'Immunité · Vaccination · Évolution', content:`<div class="sub-section"><div class="sub-section-title">Les défenses immunitaires</div><table class="def-table"><thead><tr><th>Ligne</th><th>Acteurs</th><th>Caractéristiques</th></tr></thead><tbody><tr><td><strong>1ère ligne</strong></td><td>Peau, muqueuses, larmes</td><td>Barrières physiques. Pas de mémoire.</td></tr><tr><td><strong>2ème ligne</strong></td><td>Phagocytes, inflammation, fièvre</td><td>Réaction rapide non spécifique.</td></tr><tr><td><strong>3ème ligne</strong></td><td>Lymphocytes B et T, anticorps</td><td>Réponse ciblée. Crée une mémoire durable.</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">La vaccination</div><div class="memo-block"><div class="memo-block-title">Comment fonctionne un vaccin</div><div class="memo-item">1. Injection d'un antigène inoffensif</div><div class="memo-item">2. Production d'anticorps spécifiques</div><div class="memo-item">3. Des lymphocytes mémoire persistent des années</div><div class="memo-item">4. En cas d'infection réelle : réponse immédiate</div><div class="memo-item">Immunité collective : ~70-90% immunisés → le pathogène ne circule plus</div></div></div><div class="sub-section"><div class="sub-section-title">Électricité — Lois et circuits</div><div class="formula-row"><div class="formula-label">Loi d'Ohm</div><div class="formula-val">U = R × I</div></div><div class="formula-row"><div class="formula-label">Puissance</div><div class="formula-val">P = U × I = R × I²</div></div><div class="formula-row"><div class="formula-label">Énergie</div><div class="formula-val">E = P × t  (t en secondes)</div></div><table class="def-table"><thead><tr><th></th><th>Circuit SÉRIE</th><th>Circuit PARALLÈLE</th></tr></thead><tbody><tr><td><strong>Intensité</strong></td><td>Identique partout</td><td>Se divise : I = I₁ + I₂</td></tr><tr><td><strong>Tension</strong></td><td>Se répartit : U = U₁ + U₂</td><td>Identique dans chaque branche</td></tr></tbody></table></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Réponse non spécifique = rapide, sans mémoire / Spécifique = plus lente, avec mémoire</li><li>Anticorps : TOUJOURS spécifique d'UN antigène précis</li><li>Voltmètre : toujours en parallèle. Ampèremètre : toujours en série</li></ul></div>`},
     ]
   },
   emc: {
-    name:'EMC – Éducation Morale & Civique',emoji:'⚖️',color:'c-emc',
-    sections:[
-      {title:'🏛️ La République française & ses institutions', items:[
-        'DEVISE : Liberté – Égalité – Fraternité (depuis la Révolution de 1789)',
-        '5 VALEURS FONDAMENTALES : Liberté, Égalité, Fraternité, Laïcité, Justice',
-        'Ve RÉPUBLIQUE : instaurée par la Constitution du 4 octobre 1958 sous De Gaulle',
-        'POUVOIR EXÉCUTIF : Président de la République (élu pour 5 ans au suffrage universel direct) + Premier ministre + gouvernement',
-        'POUVOIR LÉGISLATIF : Parlement = Assemblée nationale (577 députés élus pour 5 ans) + Sénat (348 sénateurs élus pour 6 ans)',
-        'POUVOIR JUDICIAIRE : tribunaux, cours d\'appel, Cour de cassation + Conseil d\'État (administrative)',
-        'CONSEIL CONSTITUTIONNEL : vérifie que les lois respectent la Constitution (9 membres)',
-        'SÉPARATION DES POUVOIRS (Montesquieu, De l\'Esprit des Lois, 1748) : évite la tyrannie en divisant les pouvoirs',
-        'PROCESSUS LÉGISLATIF : projet/proposition de loi → débats à l\'AN et au Sénat → vote → promulgation par le Président',
-        'SUFFRAGE UNIVERSEL DIRECT : tous les citoyens français majeurs votent directement pour le Président et les députés',
-      ]},
-      {title:'🕊️ Laïcité, droits & liberté', items:[
-        'LAÏCITÉ (loi du 9 décembre 1905) : séparation de l\'État et des Églises → l\'État ne finance aucun culte et ne favorise aucune religion',
-        'LAÏCITÉ ≠ ATHÉISME : chacun est libre de croire ou de ne pas croire ; la religion est affaire PRIVÉE',
-        'À L\'ÉCOLE : interdiction des signes religieux ostensibles (loi 2004) — la laïcité garantit un espace neutre pour tous',
-        'DDHC (Déclaration des Droits de l\'Homme et du Citoyen, 26 août 1789) : texte fondateur français — liberté, propriété, sûreté, résistance à l\'oppression',
-        'DUDH (Déclaration Universelle des Droits de l\'Homme, 10 décembre 1948, ONU) : 30 articles, droits pour tous les humains sans discrimination',
-        'DROITS CIVILS ET POLITIQUES : liberté d\'expression, de réunion, de vote, égalité devant la loi',
-        'DROITS ÉCONOMIQUES ET SOCIAUX : droit au travail, à la santé, à l\'éducation, au logement',
-        'DISCRIMINATION : traitement différencié négatif selon l\'origine, le sexe, la religion, le handicap, l\'orientation sexuelle → illégale et punissable en France',
-        'HARCÈLEMENT : comportement répété visant à isoler et blesser → sanction pénale, rôle des établissements scolaires',
-        'LIBERTÉS FONDAMENTALES : liberté de la presse, d\'association (loi 1901), de manifestation (encadrée)',
-      ]},
-      {title:'🗳️ Citoyenneté & engagement', items:[
-        'CITOYENNETÉ FRANÇAISE : avoir 18 ans + nationalité française → droits civiques (voter, être élu) + devoirs',
-        'DEVOIRS DU CITOYEN : respecter la loi, payer ses impôts (financement des services publics), participer aux jurys, défense nationale',
-        'LE VOTE : droit et devoir civique — élections présidentielles, législatives, municipales, européennes, référendums',
-        'L\'ABSTENTION : menace pour la démocratie — si les citoyens ne votent pas, la représentativité est faible',
-        'FORMES D\'ENGAGEMENT : vote, pétition, manifestation (pacifique), bénévolat, service civique, engagement associatif, engagement politique',
-        'ASSOCIATIONS (loi 1901) : structures librement créées par des citoyens autour d\'un projet commun — rôle social fondamental',
-        'SYNDICATS : défendent les intérêts des travailleurs ; droit de grève garanti',
-        'PARTIS POLITIQUES : organisent le débat démocratique, présentent des candidats',
-        'SOLIDARITÉ NATIONALE : impôts progressifs → redistribution via Sécurité sociale (santé, retraite, chômage), CAF, RSA',
-        'EUROPE ET CITOYENNETÉ : les citoyens français sont aussi citoyens européens → droit de voter aux élections européennes, libre circulation dans l\'UE',
-      ]},
-      {title:'📱 Médias, information & esprit critique', items:[
-        'LIBERTÉ DE LA PRESSE : pilier de la démocratie, protégée par la loi (1881 en France)',
-        'DIFFÉRENTS MÉDIAS : presse écrite, radio, TV, internet, réseaux sociaux — chacun a ses codes et biais',
-        'FAKE NEWS (désinformation) : fausses informations diffusées volontairement pour manipuler l\'opinion',
-        'COMMENT VÉRIFIER ? : identifier la source (qui publie ?), croiser plusieurs sources fiables, vérifier la date, chercher l\'original',
-        'FACT-CHECKING : journalisme de vérification des faits — sites comme AFP Factuel, Les Décodeurs (Le Monde)',
-        'ALGORITHMES et BULLES DE FILTRE : les réseaux nous montrent ce qui confirme nos opinions → risque d\'enfermement idéologique',
-        'DONNÉES PERSONNELLES et RGPD : droit à l\'oubli, consentement obligatoire, portabilité des données',
-        'CYBERHARCÈLEMENT : harcèlement via les réseaux → sanctions pénales ; signaler sur Signal-Spam, sur la plateforme Pharos',
-        'ESPRIT CRITIQUE : s\'interroger, vérifier, nuancer, argumenter — compétence citoyenne fondamentale',
-      ]},
-    ],
-    memo:[
-      {color:'#F9731630',border:'#F97316',text:'🇫🇷 Les 3 pouvoirs : EXÉCUTIF (Président + PM) | LÉGISLATIF (Parlement = AN + Sénat) | JUDICIAIRE (Tribunaux). Séparation garantit la démocratie !'},
-      {color:'#EF444430',border:'#EF4444',text:'📅 CHRONOLOGIE DROITS : 1789 DDHC → 1905 Laïcité → 1944 Vote des femmes → 1948 DUDH → 1958 Ve République → 2004 Loi signes religieux à l\'école'},
-      {color:'#10B98130',border:'#10B981',text:'💡 LAÏCITÉ : neutralité de l\'État (pas de religion officielle) + liberté de conscience (croire ce qu\'on veut en privé). ≠ interdiction des religions !'},
+    name:'EMC', emoji:'⚖️', color:'linear-gradient(135deg,#9A3412,#FB923C)',
+    fiches:[
+      {title:'La République française — Institutions et valeurs', content:`<div class="sub-section"><div class="sub-section-title">Les fondements de la République</div><div class="info-block" style="background:rgba(251,146,60,.07);border-color:#FB923C"><ul><li><strong>Article 1 de la Constitution (1958) :</strong> « La France est une République indivisible, laïque, démocratique et sociale. »</li><li><strong>Devise :</strong> Liberté · Égalité · Fraternité</li><li><strong>Séparation des pouvoirs :</strong> Exécutif (Président + PM) · Législatif (Parlement) · Judiciaire</li></ul></div></div><div class="sub-section"><div class="sub-section-title">La laïcité</div><div class="info-block" style="background:rgba(251,146,60,.07);border-color:#FB923C"><ul><li><strong>Loi de 1905 :</strong> La République ne reconnaît ni ne subventionne aucun culte.</li><li><strong>À l'école :</strong> Port de signes religieux ostensibles interdit (loi 2004).</li><li><strong>Laïcité ≠ athéisme :</strong> On peut croire, mais la religion est une affaire privée.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Grands textes des droits</div><div class="memo-block"><div class="memo-block-title">À retenir</div><div class="memo-item">1789 — DDHC : liberté, propriété, sûreté, souveraineté nationale</div><div class="memo-item">1946 — Préambule : droits sociaux, égalité hommes-femmes</div><div class="memo-item">1948 — DUDH : 30 articles, ONU, droits universels</div><div class="memo-item">1989 — CIDE : Convention des Droits de l'Enfant</div></div></div><div class="sub-section"><div class="sub-section-title">Égalité et discriminations</div><div class="info-block" style="background:rgba(251,146,60,.07);border-color:#FB923C"><ul><li><strong>Discrimination :</strong> Traitement inégal fondé sur un critère illégal (origine, sexe, religion, handicap, âge…).</li><li><strong>Égalité femmes-hommes :</strong> Inscrite dans la Constitution. Lois sur l'égalité salariale.</li><li><strong>Défenseur des droits :</strong> Institution indépendante contre les discriminations.</li></ul></div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Distinguer droit et liberté : droit au logement vs liberté de se déplacer</li><li>Loi 1905 : s'applique à l'État et services publics, pas aux individus</li><li>Le vote est un droit ET un devoir civique</li></ul></div>`},
+      {title:'Défense, sécurité et engagement citoyen', content:`<div class="sub-section"><div class="sub-section-title">Les formes d'engagement citoyen</div><div class="info-block" style="background:rgba(251,146,60,.07);border-color:#FB923C"><ul><li><strong>Vote :</strong> Droit et devoir à 18 ans.</li><li><strong>Engagement associatif :</strong> 1,5 million d'associations en France (loi 1901). 18 millions de bénévoles.</li><li><strong>Syndicats :</strong> Défendre les droits des travailleurs, négocier les conventions collectives.</li><li><strong>ONG :</strong> Croix-Rouge, MSF, Amnesty. Intérêt général sans but lucratif.</li><li><strong>Résistance civique :</strong> Pétitions, manifestations pacifiques, désobéissance civile non violente.</li></ul></div></div><div class="sub-section"><div class="sub-section-title">JDC et SNU</div><table class="def-table"><thead><tr><th>Dispositif</th><th>Pour qui ?</th><th>Contenu</th></tr></thead><tbody><tr><td><strong>JDC</strong></td><td>Tous les Français à 16 ans</td><td>Sensibilisation défense. Obligatoire pour les examens.</td></tr><tr><td><strong>SNU</strong></td><td>Jeunes 15-17 ans</td><td>Séjour cohésion 2 semaines + mission intérêt général (84h).</td></tr><tr><td><strong>Service civique</strong></td><td>16-25 ans</td><td>Mission d'intérêt général. ~600€/mois. Volontaire.</td></tr></tbody></table></div><div class="memo-block"><div class="memo-block-title">Vocabulaire clé EMC</div><div class="memo-item">État de droit : l'État est lui-même soumis à la loi</div><div class="memo-item">Pluralisme : coexistence de courants politiques, religieux différents</div><div class="memo-item">Contrat social (Rousseau) : les citoyens renoncent à une partie de leur liberté pour vivre sous des lois communes</div><div class="memo-item">Sécurité Sociale (1945) : assurance maladie, retraite, allocations familiales</div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet EMC</div><ul><li>Ancrer la réponse dans un texte de référence (DDHC, Constitution, DUDH)</li><li>Solidarité nationale : 1945 = création de la Sécurité Sociale par le CNR</li><li>Synthèse : intro définition + 2 arguments + exemple + conclusion</li></ul></div>`},
     ]
   },
   ang: {
-    name:'Anglais',emoji:'🇬🇧',color:'c-ang',
-    sections:[
-      {title:'⏰ Les temps en détail', items:[
-        'PRESENT SIMPLE : habitude, vérité générale, état permanent → "She works every day." Questions : Do/Does + sujet + BV ; Négation : don\'t/doesn\'t + BV',
-        'PRESENT CONTINUOUS : action en cours au moment où l\'on parle → "I am studying right now." Forme : am/is/are + V-ing',
-        'PRESENT PERFECT : lien entre passé et présent (expérience, résultat, action récente) → "I have lived here for 3 years." / "She has just left." Marqueurs : for, since, already, yet, never, ever, just',
-        'PAST SIMPLE : action terminée à un moment précis → "I visited Paris last summer." Verbes irréguliers à mémoriser ! Marqueurs : yesterday, last year, ago, in 1990',
-        'PAST CONTINUOUS : action en cours dans le passé, souvent interrompue → "I was sleeping when he called."',
-        'FUTUR avec WILL : décision spontanée, prédiction, promesse → "I will help you." / "It will rain tomorrow."',
-        'FUTUR avec BE GOING TO : intention planifiée, prédiction basée sur des indices → "I\'m going to study medicine." / "Look at those clouds, it\'s going to rain."',
-        'CONDITIONNEL TYPE 1 (possible) : If + Present Simple → will → "If it rains, I will stay home."',
-        'CONDITIONNEL TYPE 2 (hypothétique, irréel) : If + Past Simple → would → "If I were rich, I would travel."',
-        'PASSIF : be + past participle → "The book was written by Hugo." Utile pour mettre l\'action en valeur sans citer le sujet.',
-      ]},
-      {title:'📖 Grammaire approfondie', items:[
-        'QUESTIONS : auxiliaire (do/does/did/have/will/can) + sujet + base verbale → "Did you see that?" WH-questions : Who/What/Where/When/Why/How',
-        'QUESTION TAGS : "You like pizza, don\'t you?" / "She isn\'t here, is she?" → terminaison opposée à la phrase',
-        'MODAUX et leur sens : can/could (capacité, possibilité) ; must/have to (obligation) ; should (conseil) ; may/might (possibilité faible) ; would (politesse, conditionnel)',
-        'DISCOURS INDIRECT (Reported Speech) : "I am tired" → He said he WAS tired (recul d\'un temps) ; "I will come" → She said she WOULD come',
-        'COMPARATIFS : adjectif court → -er + than ("taller than") ; adjectif long → more + adj + than ("more interesting than"). Irréguliers : good/better, bad/worse, far/further',
-        'SUPERLATIFS : adjectif court → the + -est ("the tallest") ; long → the most + adj. Irréguliers : good/the best, bad/the worst',
-        'RELATIVES CLAUSES : "The man WHO called is my uncle." / "The book THAT I read was great." / "The city WHERE I live is Paris."',
-        'GÉRONDIF vs INFINITIF : certains verbes prennent le gérondif (enjoy, finish, avoid + V-ing) ; d\'autres l\'infinitif (want, hope, decide + to-V)',
-        'ARTICLES : a/an (indéfini, première mention) ; the (défini, chose connue, unique) ; pas d\'article (généralités, noms propres)',
-        'SOME / ANY / NO : some (phrases positives, offres) ; any (questions, négations) ; no (négatif direct)',
-      ]},
-      {title:'📚 Vocabulaire thématique étendu', items:[
-        'ENVIRONNEMENT : climate change, carbon footprint, greenhouse gases, fossil fuels, renewable energy (solar, wind, tidal), deforestation, endangered species, recycling, sustainability',
-        'SOCIÉTÉ & DROITS : equality, gender equality, discrimination, racism, human rights, freedom of speech, democracy, immigration, integration, community',
-        'SANTÉ : healthcare system (NHS/Sécurité sociale), mental health, well-being, addiction, obesity, balanced diet, exercise, stress management, pandemic',
-        'TECHNOLOGIE : artificial intelligence (AI), social media (influencer, follower, scroll), cyberbullying, privacy, algorithm, screen time, digital literacy',
-        'CULTURE & IDENTITÉ : tradition, heritage, diversity, multiculturalism, language, values, stereotypes, prejudice',
-        'TRAVAIL & ÉCONOMIE : unemployment, internship, salary, skills, teamwork, leadership, startup, global market',
-        'VERBES UTILES : to raise awareness (sensibiliser), to tackle (s\'attaquer à), to achieve (atteindre), to encourage (encourager), to deal with (gérer), to face (faire face à)',
-        'FAUX-AMIS courants : actually = en réalité (pas "actuellement") ; eventually = finalement ; library = bibliothèque ; sensible = raisonnable',
-      ]},
-      {title:'🗣️ Expression orale & écrite', items:[
-        'INTRODUIRE SON AVIS : In my opinion… / I think that… / I believe… / It seems to me that… / As far as I\'m concerned…',
-        'NUANCER : However… / On the other hand… / Nevertheless… / Although… / Despite the fact that…',
-        'ILLUSTRER : For example… / For instance… / Such as… / This is illustrated by… / A good example is…',
-        'AJOUTER UN ARGUMENT : Moreover… / Furthermore… / In addition… / What is more…',
-        'CONCLURE : To sum up… / In conclusion… / All in all… / To conclude… / Overall…',
-        'STRUCTURE D\'UN PARAGRAPHE ARGUM. : Topic sentence (idée principale) → Supporting details (exemples/preuves) → Concluding sentence (synthèse)',
-        'DESCRIPTION D\'UNE IMAGE : "In the foreground/background… / On the left/right… / The image shows… / It seems like… / This picture illustrates…"',
-        'À L\'ORAL : ne pas traduire mot à mot ; prononcer les "th" (avec la langue entre les dents) ; intonation montante pour les questions',
-        'VERBES IRRÉGULIERS incontournables : be/was,were/been ; have/had/had ; do/did/done ; go/went/gone ; see/saw/seen ; come/came/come ; take/took/taken ; make/made/made ; give/gave/given ; know/knew/known',
-      ]},
-    ],
-    memo:[
-      {color:'#06B6D430',border:'#06B6D4',text:'💡 PRESENT PERFECT vs PAST SIMPLE : "I have eaten sushi" (expérience, pas de date) vs "I ate sushi yesterday" (date précise). FOR = durée ; SINCE = point de départ.'},
-      {color:'#3B82F630',border:'#3B82F6',text:'⭐ MODAUX : can (je peux) | must (je dois absolument) | should (je devrais) | may/might (c\'est possible) | would (conditionnel/politesse)'},
-      {color:'#10B98130',border:'#10B981',text:'🎯 ORAL – Structure gagnante : In my opinion [thèse] + because [argument] + For example [exemple concret] + However [nuance] + To conclude [bilan]'},
-      {color:'#F59E0B30',border:'#F59E0B',text:'🔤 FAUX AMIS : "actually" = en réalité | "eventually" = finalement | "library" = bibliothèque | "sensible" = raisonnable (pas "sensible")'},
+    name:'Anglais', emoji:'🇬🇧', color:'linear-gradient(135deg,#0E7490,#22D3EE)',
+    fiches:[
+      {title:'Tous les temps anglais', content:`<div class="sub-section"><div class="sub-section-title">Tableau complet des temps</div><table class="def-table"><thead><tr><th>Temps</th><th>Formation (+)</th><th>Usage</th><th>Exemple</th></tr></thead><tbody><tr><td><strong>Present simple</strong></td><td>V / V+s (3e pers.)</td><td>Habitudes, vérités</td><td>She reads every day.</td></tr><tr><td><strong>Present continuous</strong></td><td>am/is/are + V-ing</td><td>Action en cours maintenant</td><td>I am studying now.</td></tr><tr><td><strong>Past simple</strong></td><td>V-ed / irrégulier</td><td>Action passée à un moment précis</td><td>He went to Paris in 2022.</td></tr><tr><td><strong>Past continuous</strong></td><td>was/were + V-ing</td><td>Action en cours dans le passé</td><td>She was sleeping when he called.</td></tr><tr><td><strong>Present perfect</strong></td><td>have/has + V-pp</td><td>Passé lié au présent, expérience</td><td>I have never seen this film.</td></tr><tr><td><strong>Future will</strong></td><td>will + V base</td><td>Décision spontanée, promesse</td><td>I'll help you!</td></tr><tr><td><strong>Going to</strong></td><td>am/is/are going to + V</td><td>Intention planifiée</td><td>I'm going to study law.</td></tr><tr><td><strong>Conditionnel 1</strong></td><td>If + present → will</td><td>Situation réelle ou probable</td><td>If it rains, I will stay.</td></tr><tr><td><strong>Conditionnel 2</strong></td><td>If + past → would</td><td>Situation imaginaire</td><td>If I were rich, I would travel.</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Modaux — usage détaillé</div><table class="def-table"><thead><tr><th>Modal</th><th>Sens</th><th>Exemple</th></tr></thead><tbody><tr><td><strong>can / can't</strong></td><td>Capacité, permission</td><td>I can swim. You can't park here.</td></tr><tr><td><strong>must / must not</strong></td><td>Obligation forte / interdiction absolue</td><td>You must wear a belt.</td></tr><tr><td><strong>have to / don't have to</strong></td><td>Obligation externe / pas d'obligation</td><td>You don't have to come.</td></tr><tr><td><strong>should / shouldn't</strong></td><td>Conseil, recommandation</td><td>You should eat vegetables.</td></tr><tr><td><strong>may / might</strong></td><td>Possibilité incertaine</td><td>It might rain tonight.</td></tr></tbody></table></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Present perfect vs Past simple : since/for/never → perfect. ago/in 2022 → past simple</li><li>3ème personne singulier présent simple : TOUJOURS +s/-es</li><li>Questions : AUXILIAIRE avant le sujet</li><li>must not (interdiction) ≠ don't have to (pas obligatoire)</li></ul></div>`},
+      {title:'Voix passive · Questions · Discours indirect & Vocabulaire', content:`<div class="sub-section"><div class="sub-section-title">Voix passive</div><table class="def-table"><thead><tr><th>Temps</th><th>Formation</th><th>Exemple</th></tr></thead><tbody><tr><td>Present simple</td><td>is/are + V-pp</td><td>The letter is written by Paul.</td></tr><tr><td>Past simple</td><td>was/were + V-pp</td><td>Penicillin was discovered in 1928.</td></tr><tr><td>Future</td><td>will be + V-pp</td><td>The bridge will be built next year.</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Discours indirect (Reported Speech)</div><table class="def-table"><thead><tr><th>Direct</th><th>Indirect (changements)</th></tr></thead><tbody><tr><td>"I am tired."</td><td>She said she was tired. (présent → passé)</td></tr><tr><td>"I will come."</td><td>She said she would come. (will → would)</td></tr><tr><td>"Do you like it?"</td><td>She asked if I liked it. (question → if + ordre normal)</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Vocabulaire thématique</div><div style="margin-bottom:8px;font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;">Environnement</div><div class="vocab-grid"><div class="vocab-card"><div class="vocab-en">climate change</div><div class="vocab-fr">changement climatique</div></div><div class="vocab-card"><div class="vocab-en">renewable energy</div><div class="vocab-fr">énergie renouvelable</div></div><div class="vocab-card"><div class="vocab-en">carbon footprint</div><div class="vocab-fr">empreinte carbone</div></div><div class="vocab-card"><div class="vocab-en">deforestation</div><div class="vocab-fr">déforestation</div></div><div class="vocab-card"><div class="vocab-en">greenhouse gas</div><div class="vocab-fr">gaz à effet de serre</div></div><div class="vocab-card"><div class="vocab-en">endangered species</div><div class="vocab-fr">espèce menacée</div></div></div><div style="margin:10px 0 6px;font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;">Technologie & Société</div><div class="vocab-grid"><div class="vocab-card"><div class="vocab-en">artificial intelligence</div><div class="vocab-fr">intelligence artificielle</div></div><div class="vocab-card"><div class="vocab-en">cyberbullying</div><div class="vocab-fr">cyberharcèlement</div></div><div class="vocab-card"><div class="vocab-en">fake news</div><div class="vocab-fr">fausses informations</div></div><div class="vocab-card"><div class="vocab-en">digital divide</div><div class="vocab-fr">fracture numérique</div></div><div class="vocab-card"><div class="vocab-en">social media</div><div class="vocab-fr">réseaux sociaux</div></div><div class="vocab-card"><div class="vocab-en">data privacy</div><div class="vocab-fr">vie privée/données</div></div></div></div><div class="sub-section"><div class="sub-section-title">Phrases modèles</div><table class="def-table"><thead><tr><th>Usage</th><th>Phrases</th></tr></thead><tbody><tr><td><strong>Donner un avis</strong></td><td>In my opinion… / I believe that… / As far as I'm concerned…</td></tr><tr><td><strong>Argumenter</strong></td><td>First of all… / Furthermore… / In addition to this…</td></tr><tr><td><strong>Nuancer</strong></td><td>However… / On the other hand… / Although…</td></tr><tr><td><strong>Conclure</strong></td><td>To conclude… / All in all… / To sum up…</td></tr></tbody></table></div><div class="memo-block"><div class="memo-block-title">Pièges orthographiques</div><div class="memo-item">their (leur) ≠ there (là-bas) ≠ they're (they are)</div><div class="memo-item">its (son/sa) ≠ it's (it is)</div><div class="memo-item">than (comparaison) ≠ then (ensuite)</div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Compréhension : lire les QUESTIONS en premier</li><li>Oral : parler lentement, reformuler avec structures connues</li></ul></div>`},
     ]
   },
   tech: {
-    name:'Technologie',emoji:'💻',color:'c-tech',
-    sections:[
-      {title:'💻 Algorithmique & programmation', items:[
-        'ALGORITHME : suite finie, ordonnée et non ambiguë d\'instructions pour résoudre un problème. Trois composantes : entrée → traitement → sortie',
-        'VARIABLE : espace mémoire nommé contenant une valeur. Types : entier (int), réel (float), texte (string/str), booléen (True/False)',
-        'AFFECTATION : on donne une valeur à une variable — ex : age ← 15 (ou age = 15 en Python)',
-        'STRUCTURE SÉQUENTIELLE : les instructions s\'exécutent dans l\'ordre, de haut en bas',
-        'STRUCTURE CONDITIONNELLE : SI (condition) ALORS [action] SINON [action] FIN SI — ex : if age >= 18: print("Majeur")',
-        'BOUCLE BORNÉE (POUR) : répète N fois — for i in range(10): (répète 10 fois)',
-        'BOUCLE NON BORNÉE (TANT QUE) : répète TANT QUE la condition est vraie — while réponse != "oui":',
-        'FONCTION : bloc de code réutilisable avec un nom, des paramètres, un résultat — def calcul(a, b): return a + b',
-        'DÉBOGAGE : trouver et corriger les erreurs (bugs). Types : erreur de syntaxe (écriture), erreur d\'exécution (division par 0…), erreur logique (résultat faux)',
-        'LANGAGES COURANTS : Python (le plus utilisé en collège/lycée), Scratch (blocs visuels), JavaScript (web), HTML/CSS (mise en forme web)',
-        'BASES DU HTML : balises <html>, <head>, <body>, <h1>...<h6> (titres), <p> (paragraphe), <a> (lien), <img> (image)',
-        'CSS : stylise le HTML — couleur, taille, police, disposition. Sélecteur { propriété: valeur; }',
-      ]},
-      {title:'⚙️ Systèmes techniques & objets connectés', items:[
-        'SYSTÈME TECHNIQUE : objet artificiel qui transforme une énergie ou une matière pour rendre un service. Ex : aspirateur = transforme électricité → mouvement de l\'air',
-        'ANALYSE FONCTIONNELLE : Fonction globale (à quoi ça sert ?) → fonctions de service (besoins des utilisateurs) → fonctions techniques (comment ça marche ?)',
-        'CHAÎNE D\'ÉNERGIE : Alimenter (source) → Distribuer → Convertir → Transmettre → Agir (sur la matière)',
-        'CHAÎNE D\'INFORMATION : Acquérir (capteur) → Traiter (microcontrôleur) → Communiquer → Agir',
-        'CAPTEURS : mesurent une grandeur physique → signal électrique. Ex : capteur de température (thermistance), capteur de lumière (LDR), capteur de mouvement (PIR)',
-        'ACTIONNEURS : transforment l\'énergie électrique en action. Ex : moteur (mouvement), LED (lumière), buzzer (son), servomoteur (position précise)',
-        'MICROCONTRÔLEUR (Arduino, Raspberry Pi) : "cerveau" du système — lit les capteurs, traite, commande les actionneurs',
-        'IOT (Internet of Things / Objets connectés) : capteurs + internet → domotique, villes intelligentes, agriculture connectée',
-        'PROTOTYPAGE : Cahier des charges → Croquis → Maquette virtuelle (CAO) → Prototype physique → Tests → Série',
-        'ÉCOCONCEPTION : concevoir en tenant compte de l\'impact environnemental (durée de vie, réparabilité, recyclabilité)',
-      ]},
-      {title:'🌐 Réseaux, internet & cybersécurité', items:[
-        'RÉSEAU INFORMATIQUE : ensemble d\'équipements reliés entre eux pour échanger des données',
-        'LAN (Local Area Network) : réseau local — ex : réseau wifi de la maison, réseau du collège',
-        'WAN (Wide Area Network) : réseau étendu — Internet est le plus grand WAN mondial',
-        'PROTOCOLE TCP/IP : ensemble de règles de communication sur Internet. IP = adresse unique de chaque machine',
-        'ADRESSE IP : identifiant numérique de chaque machine sur un réseau (ex : 192.168.1.1)',
-        'DNS (Domain Name System) : traduit les noms de domaine (google.com) en adresses IP',
-        'HTTP vs HTTPS : HyperText Transfer Protocol (non sécurisé) vs HTTPS (Secure = chiffré via TLS/SSL)',
-        'CHIFFREMENT : transforme les données en code illisible sans clé — protège la confidentialité (WhatsApp, emails HTTPS)',
-        'MOT DE PASSE FORT : 12+ caractères, mélange majuscules + minuscules + chiffres + symboles. Ne jamais réutiliser le même !',
-        'AUTHENTIFICATION À DOUBLE FACTEUR (2FA) : mot de passe + code SMS/app → sécurité renforcée',
-        'PHISHING (hameçonnage) : fausse page identique à un site réel pour voler identifiants → toujours vérifier l\'URL !',
-        'MALWARE : logiciel malveillant — virus, cheval de Troie, ransomware (rançon), spyware (espionnage)',
-        'RGPD (Règlement Général sur la Protection des Données, 2018) : droit à l\'information, consentement obligatoire, droit à l\'oubli, portabilité des données',
-        'CLOUD : stockage et traitement à distance sur des serveurs (Google Drive, iCloud, OneDrive). Avantages : accessible partout. Risques : dépendance, confidentialité',
-      ]},
-      {title:'🖨️ Représentation numérique de l\'information', items:[
-        'BIT : plus petite unité d\'information numérique (0 ou 1). OCTET = 8 bits',
-        'UNITÉS : 1 Ko (kilooctet) = 1 000 octets ; 1 Mo = 1 000 Ko ; 1 Go = 1 000 Mo ; 1 To = 1 000 Go',
-        'NUMÉROTATION BINAIRE : base 2 (uniquement 0 et 1). Ex : 5 en binaire = 101 (1×4 + 0×2 + 1×1)',
-        'CODAGE DES IMAGES : image = grille de pixels ; résolution (nb de pixels) ; profondeur (nb de bits par pixel) → qualité',
-        'FORMAT VIDÉO : séquence d\'images (fps = frames per second). Compression : MP4, H.264…',
-        'FORMAT AUDIO : WAV (non compressé) vs MP3 (compressé avec pertes)',
-        'FICHIERS ET EXTENSIONS : .txt (texte), .jpg/.png (image), .mp3/.wav (audio), .mp4 (vidéo), .pdf (document), .py (Python)',
-        'OPEN SOURCE : code source libre d\'accès, modifiable et redistribuable. Ex : Linux, LibreOffice, Firefox',
-      ]},
-    ],
-    memo:[
-      {color:'#EC489930',border:'#EC4899',text:'💻 ALGORITHME = séquence + condition + boucle. Ces 3 structures permettent de coder n\'importe quel programme, aussi complexe soit-il !'},
-      {color:'#A855F730',border:'#A855F7',text:'🔒 SÉCURITÉ : HTTPS (chiffré ✓) > HTTP ; mot de passe long et unique ; méfiance envers les liens inconnus (phishing) ; 2FA quand possible'},
-      {color:'#06B6D430',border:'#06B6D4',text:'🌐 RGPD : tes données personnelles t\'appartiennent. Toute entreprise doit te demander ton accord AVANT de les utiliser.'},
-      {color:'#10B98130',border:'#10B981',text:'⚙️ CHAÎNE D\'INFO : Capteur (acquiert) → Microcontrôleur (traite) → Actionneur (agit). C\'est le schéma de base de tout objet connecté !'},
+    name:'Technologie', emoji:'💻', color:'linear-gradient(135deg,#7E22CE,#C084FC)',
+    fiches:[
+      {title:'Algorithmique, Réseaux & Systèmes techniques', content:`<div class="sub-section"><div class="sub-section-title">Algorithmique & Programmation</div><div class="info-block" style="background:rgba(192,132,252,.07);border-color:#C084FC"><ul><li><strong>Algorithme :</strong> Suite finie d'instructions. Entrée → Traitement → Sortie.</li><li><strong>Variable :</strong> Espace mémoire nommé. Types : entier, réel, texte, booléen.</li><li><strong>Condition :</strong> SI (condition) ALORS [action] SINON [action]. Python : if … else …</li><li><strong>Boucle bornée :</strong> POUR i de 1 à n. Python : for i in range(n):</li><li><strong>Boucle non bornée :</strong> TANT QUE (condition). Python : while condition:</li><li><strong>Fonction :</strong> Bloc réutilisable. Python : def ma_fonction(param): return résultat</li></ul></div></div><div class="sub-section"><div class="sub-section-title">Réseaux & Cybersécurité</div><table class="def-table"><thead><tr><th>Concept</th><th>Définition</th></tr></thead><tbody><tr><td><strong>Adresse IP</strong></td><td>Identifiant unique de chaque machine sur un réseau</td></tr><tr><td><strong>DNS</strong></td><td>Traduit les noms de domaine en adresses IP</td></tr><tr><td><strong>HTTP / HTTPS</strong></td><td>Protocole web. HTTPS = chiffré via TLS (S = Secure)</td></tr><tr><td><strong>Phishing</strong></td><td>Fausse page pour voler des identifiants → vérifier l'URL !</td></tr><tr><td><strong>RGPD (2018)</strong></td><td>Tes données t'appartiennent. Consentement obligatoire. Droit à l'oubli.</td></tr></tbody></table></div><div class="sub-section"><div class="sub-section-title">Systèmes techniques</div><div class="info-block" style="background:rgba(192,132,252,.07);border-color:#C084FC"><ul><li><strong>Chaîne d'énergie :</strong> Alimenter → Distribuer → Convertir → Transmettre → Agir</li><li><strong>Chaîne d'information :</strong> Acquérir (capteur) → Traiter (microcontrôleur) → Agir (actionneur)</li><li><strong>Capteurs :</strong> transforment un phénomène physique en signal électrique</li><li><strong>Actionneurs :</strong> transforment l'énergie électrique en action (moteur, LED, buzzer)</li><li><strong>Écoconception :</strong> durabilité, réparabilité, recyclabilité</li></ul></div></div><div class="astuce"><div class="astuce-title">★ Astuces brevet</div><ul><li>Algorithme = séquence + condition + boucle</li><li>HTTPS (chiffré ✓) > HTTP. Vérifier le cadenas dans la barre d'adresse</li><li>RGPD : accord AVANT l'utilisation des données</li></ul></div>`},
     ]
   }
 };
@@ -1201,7 +962,7 @@ const QUESTIONS = {
 // ─── STATE ───────────────────────────────────────────────────────────────────
 let stars = parseInt(localStorage.getItem('brevetStars')||'0');
 let selectedSubjects = ['fr','math','hist','geo','sci','emc','ang','tech'];
-let qCount = 10;
+let qCount = 20;
 let quizQuestions = [];
 let currentQ = 0;
 let score = 0;
@@ -1896,26 +1657,108 @@ function showPage(id){
 
 function showFiche(subj){
   const f = FICHES[subj];
+  if(!f) return;
   const el = document.getElementById('page-fiche');
-  let html = `
-    <button class="back-btn" onclick="showPage('home')">← Retour</button>
-    <div class="fiche-header ${f.color}">
-      <div class="big-emoji">${f.emoji}</div>
-      <div><h2>${f.name}</h2><p>Fiche de révision complète</p></div>
+  injectFicheStyles();
+
+  // Build tabbed fiches if multiple
+  let tabsHtml = '';
+  let bodyHtml = '';
+
+  if(f.fiches && f.fiches.length > 1){
+    tabsHtml = `<div style="display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:14px;padding-bottom:2px;">`;
+    f.fiches.forEach((fi,i)=>{
+      tabsHtml += `<button onclick="switchFicheTab(${i},'${subj}')" id="ftab-${subj}-${i}"
+        style="flex-shrink:0;padding:7px 13px;border-radius:30px;border:1px solid var(--border);
+        background:${i===0?'white':'var(--surface)'};color:${i===0?'#111':'var(--muted)'};
+        font-family:Nunito,sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;white-space:nowrap;
+        transition:all .2s;">
+        ${i+1}. ${fi.title.split('—')[0].split('·')[0].trim()}
+      </button>`;
+    });
+    tabsHtml += `</div>`;
+  }
+
+  f.fiches.forEach((fi,i)=>{
+    bodyHtml += `<div id="ftabody-${subj}-${i}" style="display:${i===0?'block':'none'}">
+      <div style="font-weight:800;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;">${fi.title}</div>
+      ${fi.content}
     </div>`;
-  f.sections.forEach(s=>{
-    html += `<div class="section-card"><h4>${s.title}</h4><ul>`;
-    s.items.forEach(i=>html+=`<li>${i}</li>`);
-    html += `</ul></div>`;
   });
-  html += `<div style="font-weight:800;font-size:.95rem;margin:16px 0 8px;">📌 Mémo Flash</div>`;
-  f.memo.forEach(m=>{
-    html += `<div class="memo-box" style="background:${m.color};border-left-color:${m.border}">${m.text}</div>`;
-  });
-  html += `<button class="big-btn" style="margin-top:16px;" onclick="showPage('quiz')">🎮 Quiz ${f.name} !</button>`;
-  el.innerHTML = html;
+
+  el.innerHTML = `
+    <button class="back-btn" onclick="showPage('home')">← Retour</button>
+    <div class="fiche-header" style="background:${f.color};">
+      <span class="fiche-header-emoji">${f.emoji}</span>
+      <h2>${f.name}</h2>
+      <p>Fiche de révision complète · Brevet 2026</p>
+    </div>
+    ${tabsHtml}
+    <div id="fiche-body-${subj}">${bodyHtml}</div>
+    <button class="big-btn" style="margin-top:20px;" onclick="showPage('quiz')">🎮 Quiz ${f.name} →</button>
+  `;
   showPage('fiche');
 }
+
+function switchFicheTab(idx, subj){
+  const f = FICHES[subj];
+  if(!f) return;
+  f.fiches.forEach((_,i)=>{
+    const body = document.getElementById(`ftabody-${subj}-${i}`);
+    const tab = document.getElementById(`ftab-${subj}-${i}`);
+    if(body) body.style.display = i===idx?'block':'none';
+    if(tab){
+      tab.style.background = i===idx?'white':'var(--surface)';
+      tab.style.color = i===idx?'#111':'var(--muted)';
+    }
+  });
+}
+
+function injectFicheStyles(){
+  if(document.getElementById('fiche-extra-css')) return;
+  const s = document.createElement('style');
+  s.id = 'fiche-extra-css';
+  s.textContent = `
+    .sub-section{border-left:2px solid var(--border);padding-left:14px;margin:14px 0;}
+    .sub-section-title{font-size:.7rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;}
+    .info-block{border-radius:10px;padding:13px 15px;margin:8px 0;border-left:3px solid;}
+    .info-block ul{font-size:.87rem;line-height:1.65;color:#C4BAE0;padding-left:0;list-style:none;margin:0;}
+    .info-block ul li{padding:4px 0 4px 16px;position:relative;border-bottom:1px solid rgba(255,255,255,.04);}
+    .info-block ul li:last-child{border-bottom:none;}
+    .info-block ul li::before{content:'•';position:absolute;left:4px;font-weight:900;font-size:.75rem;}
+    .memo-block{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.22);border-left:3px solid #FBBF24;border-radius:10px;padding:13px 15px;margin:10px 0;}
+    .memo-block-title{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#FBBF24;margin-bottom:8px;}
+    .memo-item{font-size:.87rem;line-height:1.65;color:#D8D0EE;padding:3px 0 3px 16px;position:relative;}
+    .memo-item::before{content:'→';position:absolute;left:0;color:#FBBF24;font-weight:700;font-size:.8rem;}
+    .astuce{background:rgba(129,140,248,.07);border:1px solid rgba(129,140,248,.2);border-left:3px solid #818CF8;border-radius:10px;padding:13px 15px;margin:10px 0;}
+    .astuce-title{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#818CF8;margin-bottom:8px;}
+    .astuce ul{padding:0;list-style:none;margin:0;}
+    .astuce ul li{font-size:.87rem;line-height:1.65;color:#C4BAE0;padding:3px 0 3px 18px;position:relative;}
+    .astuce ul li::before{content:'★';position:absolute;left:0;color:#818CF8;font-size:.7rem;top:6px;}
+    .def-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.85rem;}
+    .def-table th{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:7px 10px;text-align:left;border-bottom:1px solid var(--border);color:var(--muted);}
+    .def-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;line-height:1.5;color:#C4BAE0;}
+    .def-table tr:last-child td{border-bottom:none;}
+    .def-table td:first-child,.def-table .key{font-weight:700;color:var(--text);font-size:.83rem;}
+    .formula-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.87rem;}
+    .formula-row:last-child{border-bottom:none;}
+    .formula-label{font-weight:700;color:var(--text);min-width:140px;}
+    .formula-val{font-family:'DM Mono',monospace;font-size:.83rem;color:#22D3EE;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);border-radius:6px;padding:2px 9px;}
+    .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:8px 0;}
+    .vocab-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;}
+    .vocab-en{font-weight:700;font-size:.9rem;color:var(--text);}
+    .vocab-fr{font-size:.8rem;color:var(--muted);margin-top:3px;}
+    .fiche-header{border-radius:16px;padding:22px 20px;margin-bottom:16px;color:#fff;position:relative;overflow:hidden;}
+    .fiche-header::after{content:'';position:absolute;right:-20px;top:-20px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none;}
+    .fiche-header::before{content:'';position:absolute;right:40px;bottom:-35px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none;}
+    .fiche-header-emoji{font-size:2.2rem;display:block;margin-bottom:8px;}
+    .fiche-header h2{font-size:1.35rem;font-weight:800;line-height:1.2;}
+    .fiche-header p{font-size:.82rem;opacity:.75;margin-top:4px;}
+  `;
+  document.head.appendChild(s);
+}
+
+
 
 function toggleSubj(el){
   const s = el.dataset.s;
@@ -1940,7 +1783,17 @@ function startQuiz(){
     (QUESTIONS[s]||[]).forEach(q=>pool.push({...q,subject:s}));
   });
   pool.sort(()=>Math.random()-.5);
-  quizQuestions = pool.slice(0, Math.min(qCount, pool.length));
+  // If qCount > pool size, repeat questions (shuffle again from pool)
+  if(qCount <= pool.length){
+    quizQuestions = pool.slice(0, qCount);
+  } else {
+    quizQuestions = [];
+    while(quizQuestions.length < qCount){
+      const shuffled = [...pool].sort(()=>Math.random()-.5);
+      quizQuestions = quizQuestions.concat(shuffled);
+    }
+    quizQuestions = quizQuestions.slice(0, qCount);
+  }
   if(quizQuestions.length===0){showToast('Pas de questions disponibles !');return;}
   currentQ=0; score=0;
   document.getElementById('quiz-intro-wrap').style.display='none';
@@ -2223,7 +2076,7 @@ function renderLeaderboard(scores, emptyMsg){
           <div class="lb-detail">${s.score}/${s.total} questions · ${s.date} à ${s.time||''}</div>
         </div>
         <div class="lb-score-wrap">
-          <div class="lb-pct" style="color:${s.pct>=80?'var(--green)':s.pct>=60?'var(--yellow)':'var(--muted)'}">${s.pct}%</div>
+          <div class="lb-pct" style="color:${s.pct>=80?'var(--emerald)':s.pct>=60?'var(--amber)':'var(--muted)'}">${s.pct}%</div>
           <div class="lb-fraction">${s.score}/${s.total}</div>
         </div>
       </div>
