@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don d'Organe — Révision Brevet</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">♥</div>
+    <div class="nav-logo-text">Don d'Organe<span>Brevet • Révision</span></div>
+  </div>
+  <button class="nav-btn active" onclick="showScreen('home')" id="nav-home">
+    <span class="icon">🏠</span><span>Accueil</span>
+  </button>
+  <button class="nav-btn" onclick="showScreen('fiches')" id="nav-fiches">
+    <span class="icon">📋</span><span>Fiches</span>
+  </button>
+  <button class="nav-btn" onclick="showScreen('memo')" id="nav-memo">
+    <span class="icon">🃏</span><span>Mémo</span>
+  </button>
+  <button class="nav-btn" onclick="showScreen('quiz')" id="nav-quiz">
+    <span class="icon">✏️</span><span>Quiz</span>
+  </button>
+</nav>
+
+<!-- ════════════════ HOME ════════════════ -->
+<div id="screen-home" class="screen active">
+  <div class="home-hero">
+    <div class="home-title">Pourquoi et comment le don d'organe<br><em>peut sauver des vies ?</em></div>
+    <div class="home-subtitle">Application de révision • Oral du Brevet des Collèges • Elise</div>
+    <div class="home-stat-row">
+      <div class="home-stat"><div class="home-stat-num">~10 000</div><div class="home-stat-label">patients en attente / an</div></div>
+      <div class="home-stat"><div class="home-stat-num">8 vies</div><div class="home-stat-label">sauvées par 1 donneur</div></div>
+      <div class="home-stat"><div class="home-stat-num">6 000</div><div class="home-stat-label">greffes / an en France</div></div>
+      <div class="home-stat"><div class="home-stat-num">1 mort</div><div class="home-stat-label">toutes les 24h (manque)</div></div>
+    </div>
+  </div>
+  <div class="card-grid">
+    <div class="card" onclick="showScreen('fiches')">
+      <div class="card-badge">6 fiches</div>
+      <div class="card-icon">📋</div>
+      <div class="card-title">Fiches de révision</div>
+      <div class="card-desc">Toutes les notions clés organisées par thème : définitions, processus, loi, éthique, avenir.</div>
+    </div>
+    <div class="card" onclick="showScreen('memo')">
+      <div class="card-badge">30 cartes</div>
+      <div class="card-icon">🃏</div>
+      <div class="card-title">Cartes Mémo</div>
+      <div class="card-desc">Touche une carte pour voir la réponse. Parfait pour mémoriser les chiffres et définitions clés.</div>
+    </div>
+    <div class="card" onclick="showScreen('quiz')">
+      <div class="card-badge">100 questions</div>
+      <div class="card-icon">✏️</div>
+      <div class="card-title">Quiz complet</div>
+      <div class="card-desc">100 questions sur tous les thèmes. QCM avec explications pour chaque réponse.</div>
+    </div>
+  </div>
+  <div class="plan-card">
+    <div class="plan-title">📅 Plan de révision recommandé</div>
+    <div class="plan-grid">
+      <div class="plan-day" style="background:var(--coral-pale)"><strong style="color:var(--coral)">Jour 1</strong><br>Lire toutes les fiches</div>
+      <div class="plan-day" style="background:var(--teal-pale)"><strong style="color:var(--teal)">Jour 2</strong><br>Mémo — toutes les cartes</div>
+      <div class="plan-day" style="background:var(--amber-pale)"><strong style="color:#8B5E0A">Jour 3</strong><br>Quiz — 50 premières questions</div>
+      <div class="plan-day" style="background:var(--mist);border:1px solid var(--border)"><strong>Jour 4</strong><br>Quiz — 50 dernières questions</div>
+      <div class="plan-day" style="background:var(--navy);color:white"><strong>Veille</strong><br>Relire les fiches + mémo rapide</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ FICHES ════════════════ -->
+<div id="screen-fiches" class="screen">
+  <div class="fiche-tabs">
+    <button class="fiche-tab active" onclick="showFiche('f1',this)">I. Intro</button>
+    <button class="fiche-tab" onclick="showFiche('f2',this)">II. Pourquoi vital ?</button>
+    <button class="fiche-tab" onclick="showFiche('f3',this)">III. Comment ça marche ?</button>
+    <button class="fiche-tab" onclick="showFiche('f4',this)">IV. Loi & Éthique</button>
+    <button class="fiche-tab" onclick="showFiche('f5',this)">V. Avenir médical</button>
+    <button class="fiche-tab" onclick="showFiche('f6',this)">VI. Questions jury</button>
+  </div>
+
+  <div id="fiche-f1" class="fiche-content active">
+    <div class="fiche-card">
+      <div class="fiche-header">
+        <div class="fiche-header-icon" style="background:var(--coral-pale)">🎯</div>
+        <div><div class="fiche-header-title">Introduction & Accroche</div><div class="fiche-header-sub">Durée : ~30 secondes</div></div>
+      </div>
+      <div class="fiche-body">
+        <div class="key-fact">« En France, une personne meurt toutes les 24 heures faute d'organe disponible. »</div>
+        <p>Ce chiffre publié par l'Agence de la Biomédecine résume l'urgence du sujet. Chaque année, près de <strong>10 000 patients</strong> attendent une greffe, et pourtant un seul donneur peut sauver jusqu'à <strong>8 vies</strong>.</p>
+        <p><strong>Problématique :</strong> Pourquoi cette pénurie persiste-t-elle, et comment fonctionne concrètement le don d'organe ?</p>
+        <p><strong>Plan annoncé :</strong></p>
+        <div class="tag-row">
+          <span class="tag tag-coral">II. Pourquoi vital ?</span>
+          <span class="tag tag-teal">III. Comment ça marche</span>
+          <span class="tag tag-coral">IV. Loi & éthique</span>
+          <span class="tag tag-amber">V. Avenir médical</span>
+        </div>
+        <div class="key-fact key-fact-teal">Conseil : marquer une pause après l'accroche, regarder le jury, puis reprendre.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fiche-f2" class="fiche-content">
+    <div class="fiche-card">
+      <div class="fiche-header">
+        <div class="fiche-header-icon" style="background:#FEE8E8">💔</div>
+        <div><div class="fiche-header-title">Pourquoi le don d'organe est-il vital ?</div><div class="fiche-header-sub">Durée : ~1 minute</div></div>
+      </div>
+      <div class="fiche-body">
+        <p>Certains organes, lorsqu'ils sont atteints d'une maladie grave et <strong>irréversible</strong>, ne peuvent plus fonctionner même avec les meilleurs traitements. La greffe est alors la <strong>seule solution thérapeutique</strong>.</p>
+        <div class="two-col">
+          <div class="mini-card">
+            <div class="mini-card-title">🫀 Organes transplantables</div>
+            <ul><li>Reins (les plus fréquents)</li><li>Cœur</li><li>Foie</li><li>Poumons</li><li>Pancréas</li><li>Intestin</li></ul>
+          </div>
+          <div class="mini-card">
+            <div class="mini-card-title">🦴 Tissus transplantables</div>
+            <ul><li>Cornées (vue)</li><li>Peau</li><li>Os</li><li>Valves cardiaques</li><li>Moelle osseuse</li></ul>
+          </div>
+        </div>
+        <div class="key-fact">1 donneur → jusqu'à 8 vies sauvées et +50 personnes aidées (tissus)</div>
+        <p><strong>Maladies nécessitant une greffe :</strong> insuffisance rénale terminale, insuffisance cardiaque sévère, cirrhose hépatique avancée, maladies pulmonaires.</p>
+        <div class="tag-row">
+          <span class="tag tag-coral">~10 000 en attente / an</span>
+          <span class="tag tag-teal">~6 000 greffes / an</span>
+          <span class="tag tag-amber">1 mort / 24h (manque)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fiche-f3" class="fiche-content">
+    <div class="fiche-card">
+      <div class="fiche-header">
+        <div class="fiche-header-icon" style="background:var(--teal-pale)">🏥</div>
+        <div><div class="fiche-header-title">Comment fonctionne le don d'organe ?</div><div class="fiche-header-sub">Durée : ~1 min 30 — partie la plus importante</div></div>
+      </div>
+      <div class="fiche-body">
+        <p><strong>Le don après décès (le plus fréquent) — 5 étapes à retenir :</strong></p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Mort encéphalique</div><div class="step-desc">Destruction totale et irréversible du cerveau. Constatée par 2 médecins indépendants. Le cœur bat encore grâce aux machines.</div></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Vérification du consentement</div><div class="step-desc">Consultation du Registre National des Refus. Si absent = donneur présumé. Les proches sont informés.</div></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Prélèvement chirurgical</div><div class="step-desc">Au bloc opératoire, dans des conditions stériles. Conservation dans le froid. Délais très courts selon l'organe.</div></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Attribution (Agence de la Biomédecine)</div><div class="step-desc">Selon compatibilité sanguine, urgence médicale, proximité géographique.</div></div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Greffe sur le receveur</div><div class="step-desc">Opération chirurgicale spécialisée. Suivi médical strict après l'intervention.</div></div></div>
+        </div>
+        <div class="key-fact key-fact-teal">Don du vivant : possible pour 1 rein ou partie du foie. Réservé aux proches. Autorisation judiciaire obligatoire.</div>
+        <div class="two-col" style="margin-top:14px">
+          <div class="mini-card"><div class="mini-card-title">⏱ Durée de vie hors corps</div><ul><li>Cœur : 4–6 heures</li><li>Foie : 12–24 heures</li><li>Reins : 24–36 heures</li><li>Cornées : 7–14 jours</li></ul></div>
+          <div class="mini-card"><div class="mini-card-title">👨‍⚕️ Qui décide ?</div><ul><li>Médecins ≠ de ceux du donneur</li><li>Agence de la Biomédecine</li><li>Liste nationale d'attente</li><li>Critères médicaux objectifs</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fiche-f4" class="fiche-content">
+    <div class="fiche-card">
+      <div class="fiche-header">
+        <div class="fiche-header-icon" style="background:var(--amber-pale)">⚖️</div>
+        <div><div class="fiche-header-title">Cadre légal & Éthique</div><div class="fiche-header-sub">Durée : ~1 minute</div></div>
+      </div>
+      <div class="fiche-body">
+        <p><strong>Loi française :</strong> La loi Caillavet (1976) et la loi de 2017 instituent le <strong>consentement présumé</strong>.</p>
+        <div class="key-fact">Tout Français est donneur par défaut, sauf inscription au Registre National des Refus.</div>
+        <div class="two-col">
+          <div class="mini-card">
+            <div class="mini-card-title" style="color:var(--coral)">🚫 Pour REFUSER</div>
+            <ul><li>S'inscrire sur le Registre National des Refus</li><li>En ligne, gratuit</li><li>Modifiable à tout moment</li><li>Ou témoignage oral auprès des proches</li></ul>
+          </div>
+          <div class="mini-card">
+            <div class="mini-card-title" style="color:var(--teal)">✅ 3 Principes éthiques</div>
+            <ul><li><strong>Gratuité</strong> : organes non monnayables</li><li><strong>Anonymat</strong> : donneur/receveur inconnus</li><li><strong>Liberté</strong> : consentement libre</li></ul>
+          </div>
+        </div>
+        <p>Les médecins qui soignent le donneur sont <strong>toujours différents</strong> de ceux qui réalisent la greffe (éviter tout conflit d'intérêts).</p>
+        <div class="key-fact key-fact-teal">En parler à ses proches est l'acte citoyen le plus important, même sans s'inscrire nulle part.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fiche-f5" class="fiche-content">
+    <div class="fiche-card">
+      <div class="fiche-header">
+        <div class="fiche-header-icon" style="background:var(--teal-pale)">🔬</div>
+        <div><div class="fiche-header-title">Défis médicaux & Avenir</div><div class="fiche-header-sub">Durée : ~30 secondes</div></div>
+      </div>
+      <div class="fiche-body">
+        <p><strong>Le rejet :</strong> Le système immunitaire attaque l'organe greffé (corps étranger). Solution = <strong>médicaments immunosuppresseurs à vie</strong>.</p>
+        <div class="two-col">
+          <div class="mini-card"><div class="mini-card-title">🐷 Xénogreffes</div><div class="mini-card-text">Organes de porcs génétiquement modifiés. 1ère greffe de cœur de porc sur humain : USA 2022.</div></div>
+          <div class="mini-card"><div class="mini-card-title">🤖 Organes artificiels</div><div class="mini-card-text">Cœur artificiel total (Carmat, France). Dialyse pour les reins en attente.</div></div>
+          <div class="mini-card"><div class="mini-card-title">🖨️ Bioimpression 3D</div><div class="mini-card-text">Imprimer des organes à partir des cellules du patient → zéro risque de rejet.</div></div>
+          <div class="mini-card"><div class="mini-card-title">🧬 Thérapie génique</div><div class="mini-card-text">Modifier les cellules pour les rendre compatibles avec différents receveurs.</div></div>
+        </div>
+        <div class="key-fact">Cette partie montre à l'examinateur qu'Elise a approfondi le sujet au-delà du programme !</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fiche-f6" class="fiche-content">
+    <div class="fiche-card">
+      <div class="fiche-header">
+        <div class="fiche-header-icon" style="background:var(--amber-pale)">❓</div>
+        <div><div class="fiche-header-title">Questions fréquentes du jury</div><div class="fiche-header-sub">10 minutes de questions — à bien préparer</div></div>
+      </div>
+      <div class="fiche-body">
+        <div class="qa-list">
+          <div class="qa-item">
+            <div class="qa-q">Q : Qu'est-ce que la mort encéphalique ?</div>
+            <div class="qa-a">C'est la destruction totale et définitive de toutes les fonctions cérébrales, constatée par 2 médecins avec 2 examens distincts. Le cœur peut encore battre grâce aux machines mais la personne est légalement morte.</div>
+          </div>
+          <div class="qa-item">
+            <div class="qa-q">Q : Peut-on refuser d'être donneur ?</div>
+            <div class="qa-a">Oui, en s'inscrivant gratuitement sur le Registre National des Refus (en ligne). La décision peut être changée à tout moment.</div>
+          </div>
+          <div class="qa-item">
+            <div class="qa-q">Q : Les familles peuvent-elles s'opposer ?</div>
+            <div class="qa-a">Depuis 2017, non officiellement si la personne n'était pas inscrite au registre. Mais en pratique les équipes médicales écoutent les proches et cherchent les volontés du défunt.</div>
+          </div>
+          <div class="qa-item">
+            <div class="qa-q">Q : Peut-on vendre ses organes ?</div>
+            <div class="qa-a">Non. Le corps humain est hors commerce. C'est le principe de non-patrimonialité du corps humain, inscrit dans la loi. Toute transaction est interdite et punie.</div>
+          </div>
+          <div class="qa-item">
+            <div class="qa-q">Q : Pourquoi manque-t-il d'organes ?</div>
+            <div class="qa-a">La mort encéphalique est rare (accidents graves, AVC). Et parfois des familles s'y opposent faute d'avoir eu cette conversation avec leur proche.</div>
+          </div>
+          <div class="qa-item">
+            <div class="qa-q">Q : Qu'est-ce que la xénogreffe ?</div>
+            <div class="qa-a">Greffe d'organes d'animal à l'homme. Des porcs génétiquement modifiés sont utilisés. En 2022 aux USA, une 1ère greffe de cœur de porc sur un humain a été réalisée.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ MÉMO ════════════════ -->
+<div id="screen-memo" class="screen">
+  <p class="memo-hint">👆 Touche une carte pour révéler la réponse — retouche pour la cacher</p>
+  <div class="memo-score">
+    <div class="memo-score-item"><div class="memo-score-num" id="memo-seen">0</div><div class="memo-score-label">Vues</div></div>
+    <div class="memo-score-item"><div class="memo-score-num" style="color:var(--teal)" id="memo-known">0</div><div class="memo-score-label">Connues ✓</div></div>
+    <div class="memo-score-item"><div class="memo-score-num" style="color:var(--coral)">30</div><div class="memo-score-label">Total</div></div>
+    <div style="flex:1"></div>
+    <button class="btn btn-outline" onclick="resetMemo()">↺ Réinitialiser</button>
+  </div>
+  <div class="memo-grid" id="memo-grid"></div>
+</div>
+
+<!-- ════════════════ QUIZ ════════════════ -->
+<div id="screen-quiz" class="screen">
+  <div id="quiz-start">
+    <div class="quiz-start-card">
+      <div style="font-size:36px;margin-bottom:12px">✏️</div>
+      <div class="quiz-start-title">Quiz — 100 questions</div>
+      <div class="quiz-start-sub">Teste tes connaissances sur tous les thèmes du sujet</div>
+      <div class="quiz-cat-filter" id="cat-filter">
+        <button class="cat-btn active" onclick="setCat('Tout',this)">Tout (100)</button>
+        <button class="cat-btn" onclick="setCat('Définitions',this)">Définitions</button>
+        <button class="cat-btn" onclick="setCat('Chiffres',this)">Chiffres</button>
+        <button class="cat-btn" onclick="setCat('Processus',this)">Processus</button>
+        <button class="cat-btn" onclick="setCat('Loi',this)">Loi & Éthique</button>
+        <button class="cat-btn" onclick="setCat('Médical',this)">Médical</button>
+        <button class="cat-btn" onclick="setCat('Avenir',this)">Avenir</button>
+      </div>
+      <button class="btn btn-primary" style="font-size:15px;padding:14px 32px" onclick="startQuiz()">Commencer le quiz →</button>
+    </div>
+  </div>
+  <div id="quiz-game" style="display:none">
+    <div class="quiz-header">
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-label"><span id="q-label">Question 1/100</span><span id="q-cat-label"></span></div>
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="q-progress" style="width:1%"></div></div>
+      </div>
+      <div class="quiz-score-badge">✓ <span id="q-score">0</span> / <span id="q-total-disp">100</span></div>
+    </div>
+    <div class="quiz-question-card">
+      <div class="quiz-q-num" id="q-num">Question 1</div>
+      <div class="quiz-q-text" id="q-text"></div>
+      <div class="quiz-answers" id="q-answers"></div>
+      <div class="quiz-explanation" id="q-explanation"></div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn btn-outline" onclick="quitQuiz()">✕ Quitter</button>
+      <button class="btn btn-primary" id="q-next" onclick="nextQuestion()" style="display:none">Question suivante →</button>
+    </div>
+  </div>
+  <div id="quiz-result" style="display:none">
+    <div class="quiz-result">
+      <div class="result-stars" id="r-stars"></div>
+      <div class="quiz-result-score" id="r-score"></div>
+      <div class="quiz-result-label" id="r-label"></div>
+      <div class="quiz-result-sub" id="r-sub"></div>
+      <div class="result-btns">
+        <button class="btn btn-primary" onclick="startQuiz()">↺ Recommencer</button>
+        <button class="btn btn-outline" onclick="showScreen('fiches')">📋 Revoir les fiches</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="src/data.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
